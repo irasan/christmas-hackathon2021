@@ -65,7 +65,7 @@ def register():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
         # get all the users
-        users = mongo.db.users
+        users = list(mongo.db.users.find())
         # see if we already have the entered username
         existing_user = users.find_one({'name': request.form['username']})
 

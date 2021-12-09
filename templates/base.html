@@ -11,13 +11,7 @@
     <link href="../static/css/style.css" rel="stylesheet">
 </head>
 <body>
-{% if 'username' in session %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">welcome back, {{ session['username'] }}</div>
-{% else %}
-    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">please <a href="{{ url_for('login') }}">login</a>
-        or <a href="{{ url_for('register') }}">register</a>.
-    </div>
-{% endif %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ url_for('index') }}">National Elf Services</a>
@@ -47,6 +41,9 @@
         </div>
     </div>
 </nav>
+<div class="clock">
+<span class="flare"> Days left to Christmas: </span><span id="clock-inner" class="clock-gold"></span>
+</div>
 <div class="container-fluid">
     <div class="snow-bg">
       <div class="snow"></div>
@@ -249,6 +246,13 @@
       <div class="snow"></div>
       <div class="snow"></div>
       <div class="snow"></div>
+      {% if 'username' in session %}
+    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">welcome back, {{ session['username'] }}</div>
+{% else %}
+    <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">please <a href="{{ url_for('login') }}">login</a>
+        or <a href="{{ url_for('register') }}">register</a>.
+    </div>
+{% endif %}
       {% block content %}{% endblock %}
     </div>
 </div>
@@ -258,5 +262,6 @@
     </div>
 </footer>
 <script src="../static/vendor/jquery/jquery.min.js"></script>
+<script src="../static/js/clock.js"></script>
 </body>
 </html>

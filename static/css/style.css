@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap');
+
 .container-fluid{
     background-color: #0A0D14;
     padding: 20px;
@@ -18,6 +20,41 @@ form {
     padding: 20px;
 }
 
-p {
-    
+/* clock */
+.clock {
+    height: 60px;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    background: #000854;
 }
+
+/* glittery letters taken from here https://monsterspost.com/20-codepens-to-give-christmas-mood-to-your-website/ */
+.clock-blue {
+    color: #035ee2;
+    background: -webkit-linear-gradient(transparent, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/blue_glitter.gif) repeat;
+    background: -o-linear-gradient(transparent, transparent) !important;
+    -webkit-text-fill-color: transparent !important;
+    -webkit-background-clip: text !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    letter-spacing: 1px;
+    z-index: 999999;
+    }
+    
+.clock-gold {
+      
+    color: gold;
+    background: -webkit-linear-gradient(transparent, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/gold_glitter.gif) repeat;
+    background: -o-linear-gradient(transparent, transparent) !important;
+    -webkit-text-fill-color: transparent !important;
+    -webkit-background-clip: text !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    letter-spacing: 1px;
+    z-index: 999999;
+    -webkit-background-clip: text;
+}
+    

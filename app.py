@@ -4,10 +4,15 @@ from flask_pymongo import PyMongo
 from config import Config
 import bcrypt
 import os
+if os.path.exists("env.py"):
+    import env
 
 # look inside config.py and add the connection string
 app = Flask(__name__)
+
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config['MONGO_URI'] = os.environ.get("MONGODB_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 app.config.from_object(Config)
 
 mongo = PyMongo(app)
@@ -16,7 +21,8 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title="Home")
+    parents = list(mongo.db.parents.find());
+    return render_template('index.html', title="Home", parents=parents)
 
 
 @app.route('/login', methods=['GET', 'POST'])

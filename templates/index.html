@@ -3,6 +3,9 @@
 {% block content %}
     <div class="row text-center">
         home todo
+        {% for p in parents %}
+        <h1>Mongo: {{ p.name }}</h1>
+        {% endfor %}
     </div>
     <!-- /.row -->
 {% endblock %}

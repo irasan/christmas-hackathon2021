@@ -21,8 +21,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    parents = list(mongo.db.parents.find());
-    return render_template('index.html', title="Home", parents=parents)
+    return render_template('index.html', title="Home")
 
 
 @app.route('/login', methods=['GET', 'POST'])

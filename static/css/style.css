@@ -1,3 +1,23 @@
 .container-fluid{
     background-color: #0A0D14;
+    padding: 20px;
+}
+
+h1{
+    background-color: #ffffffc9;
+    width: 50%;
+    margin: 5vh auto;
+    padding: 20px;
+    text-align: center;
+}
+
+form {
+    background-color: #ffffffc9;
+    width: 50%;
+    margin: 5vh auto;
+    padding: 20px;
+}
+
+p {
+    
 }

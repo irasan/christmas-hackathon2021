@@ -34,11 +34,43 @@ class SmallKidLetterForm(FlaskForm):
                             validators=[DataRequired(), Length(min=2, max=30)])
     present2 = StringField('and a', validators=[DataRequired(),
                                                    Length(min=2, max=30)])
-    milk = BooleanField('Milk',  false_values=None)
-    cookies = BooleanField('Cookies',  false_values=None)
+    milk = BooleanField('Milk', false_values=None)
+    cookies = BooleanField('Cookies', false_values=None)
     say_hi = SelectField('P.S. Please say "Hi" to',
                             choices=['Mrs. Clause', 'The Elves',
                                      'Blitzen', 'Comet', 'Cupid',
+                                     'Dasher', 'Dancer', 'Donder',
+                                     'Prancer', 'Rudolph', 'Vixen'],
+                            coerce=str,
+                            option_widget=None,
+                            validate_choice=True)
+    submit = SubmitField('Send Letter')
+
+
+class BigKidLetterForm(FlaskForm):
+    child_name = StringField('My name is', validators=[DataRequired(),
+                                                   Length(min=2, max=10)])
+    child_age = IntegerField('I am', validators=[NumberRange(min=1, max=6)])
+    home = StringField('I live in', validators=[DataRequired(),
+                                                   Length(min=4, max=16)])
+    brush_teeth = BooleanField('Brushed my teeth everyday', false_values=None)
+    clean_room = BooleanField('Cleaned my room', false_values=None)
+    make_bed = BooleanField('Made my bed', false_values=None)
+    homework = BooleanField('Finished all my homework', false_values=None)
+    present1 = StringField('This Christmas, my wishes are',
+                            validators=[DataRequired(), Length(min=2, max=30)])
+    present2 = StringField(',', validators=[DataRequired(), Length(min=2, max=30)])
+    present3 = StringField('and', validators=[DataRequired(),
+                                                   Length(min=2, max=30)])
+    friend = StringField('I also wish for a', validators=[DataRequired(),
+                                                   Length(min=2, max=30)])
+    say_hi_1 = SelectField('P.S. Say "Hi" to',
+                            choices=['Mrs. Clause', 'The Elves'],
+                            coerce=str,
+                            option_widget=None,
+                            validate_choice=True)
+    say_hi_2 = SelectField('and',
+                            choices=['Blitzen', 'Comet', 'Cupid',
                                      'Dasher', 'Dancer', 'Donder',
                                      'Prancer', 'Rudolph', 'Vixen'],
                             coerce=str,

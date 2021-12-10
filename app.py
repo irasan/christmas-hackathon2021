@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
-from forms import LoginForm, RegisterForm, SmallKidLetterForm
+from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm
 from flask_pymongo import PyMongo
 from config import Config
 import bcrypt
@@ -60,6 +60,16 @@ def get_small_kid_letter():
     #     form = SmallKidLetterForm()
     form = SmallKidLetterForm(request.form)
     return render_template("letter_small_kid.html", title="Letter To Santa", form=form)
+
+
+@app.route('/get_big_kid_letter', methods=['GET', 'POST'])
+def get_big_kid_letter():
+    """Render letter template for small kid"""
+    # users.find_one
+    # if child < 7:
+    #     form = SmallKidLetterForm()
+    form = BigKidLetterForm(request.form)
+    return render_template("letter_big_kid.html", title="Letter To Santa", form=form)
 
 
 @app.route('/logout')

@@ -1,8 +1,62 @@
 {% extends "base.html" %}
 {% block nav_index %}active{% endblock %}
 {% block content %}
-    <section class="container">
+<section class="container">
+    <form method="POST" action="">
+        {{ form.csrf_token }}
         <h1>Dear Santa,</h1>
-        
-    </section>
+        <p>
+            {{ form.child_name.label }}
+            {{ form.child_name(size=12, maxlength=10) }}.
+        </p>
+        <p>
+            {{ form.child_age.label }}
+            {{ form.child_age }} years old.
+        </p>
+        <p>
+            {{ form.home.label }}
+            {{ form.home }}, which is quite far from your place in the North Pole.
+        </p>
+        <p>Cristmas is my favourite day of the year, and I'm looking forwrd to your visit in our house. 
+            You see, I tried my best to be nice this year.
+        </p>
+        <p>
+            The nice things I did are:<br>
+        </p>
+        <p>
+            {{ form.brush_teeth }}
+            {{ form.brush_teeth.label }}<br>
+            {{ form.clean_room }}
+            {{ form.clean_room.label }}<br>
+            {{ form.make_bed }}
+            {{ form.make_bed.label }}<br>
+            {{ form.homework }}
+            {{ form.homework.label }}<br>
+        </p>
+        <p>
+            {{ form.present1.label }}
+            {{ form.present1 }}
+            {{ form.present2.label }}
+            {{ form.present2 }}
+            {{ form.present3.label }}
+            {{ form.present3 }}.
+        </p>
+        <p>
+            {{ form.friend.label }}
+            {{ form.friend }} for my friend.
+        </p>
+        <p>
+            I love snacking on chocolate pretzels these days, and I'll be leaving a plate of that by the tree.
+            I hope that will give you energy as you drop off gifts to the other nice kids out there.
+        </p>
+        <p>Merry Christmas, Santa!</p>
+        <p>
+            {{ form.say_hi_1.label }}
+            {{ form.say_hi_1 }}
+            {{ form.say_hi_2.label }}
+            {{ form.say_hi_2 }} for me!
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</section>
 {% endblock %}

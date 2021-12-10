@@ -15,7 +15,10 @@ app.config['MONGO_URI'] = os.environ.get("MONGODB_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 app.config.from_object(Config)
 
-mongo = PyMongo(app)
+mongo = PyMongo(app,tlsCAFile=certifi.where())
+collection_name = mongo.db.collection_name 
+
+# mongo = PyMongo(app)
 
 
 @app.route('/')

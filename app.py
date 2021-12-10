@@ -46,7 +46,7 @@ def login():
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 # successful redirect to home logged in
-                return redirect(url_for('index', title="Sign In", form=form))
+                return redirect(url_for('index', title="Sign In"))
             # must have failed set flash message
             flash('Invalid username/password combination')
     return render_template("login.html", title="Sign In", form=form)
@@ -104,11 +104,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-# if __name__ == '__main__':
-#     app.config['TRAP_BAD_REQUEST_ERRORS'] = True
-#     app.config['DEBUG'] = True
-#     app.run(host='0.0.0.0', port='5000', debug=True)
-if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+if __name__ == '__main__':
+    app.config['TRAP_BAD_REQUEST_ERRORS'] = True
+    app.config['DEBUG'] = True
+    app.run(host='0.0.0.0', port='5000', debug=True)

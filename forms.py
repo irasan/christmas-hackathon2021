@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, RadioField, SelectField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
 
 
@@ -21,3 +21,28 @@ class RegisterForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Register')
 
+
+class SmallKidLetterForm(FlaskForm):
+    child_name = StringField('My name is', validators=[DataRequired(),
+                                                   Length(min=2, max=10)])
+    child_age = StringField('I am', validators=[DataRequired(),
+                                                   Length(min=2, max=10)])
+    behaviour = RadioField('This year I have been:',
+                            choices=['Naughty', 'Nice',
+                                     'A little bit of both'],
+                            coerce=str)
+    present1 = StringField('What I would like the most this Christmas is...',
+                            validators=[DataRequired(), Length(min=2, max=30)])
+    present2 = StringField('and', validators=[DataRequired(),
+                                                   Length(min=2, max=30)])
+    milk = BooleanField('Milk',  false_values=None)
+    cookies = BooleanField('Cookies',  false_values=None)
+    say_hi = SelectField('P.S. Please say "Hi" to',
+                            choices=['Mrs. Clause', 'The Elves',
+                                     'Blitzen', 'Comet', 'Cupid',
+                                     'Dasher', 'Dancer', 'Donder',
+                                     'Prancer', 'Rudolph', 'Vixen'],
+                            coerce=str,
+                            option_widget=None,
+                            validate_choice=True)
+    send_letter = SubmitField('Send Letter')

@@ -65,7 +65,7 @@ def register():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
         # get all the users
-        users = list(mongo.db.users.find())
+        users = mongo.db.users
         # see if we already have the entered username
         existing_user = users.find_one({'name': request.form['username']})
 
@@ -87,4 +87,4 @@ def register():
 if __name__ == '__main__':
     app.config['TRAP_BAD_REQUEST_ERRORS'] = True
     app.config['DEBUG'] = True
-    app.run(host='127.0.0.1', debug=True)
+    app.run(host='127.0.0.1:8000', debug=True)

@@ -94,7 +94,11 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-if __name__ == '__main__':
-    app.config['TRAP_BAD_REQUEST_ERRORS'] = True
-    app.config['DEBUG'] = True
-    app.run(host='127.0.0.1:8000', debug=True)
+# if __name__ == '__main__':
+#     app.config['TRAP_BAD_REQUEST_ERRORS'] = True
+#     app.config['DEBUG'] = True
+#     app.run(host='0.0.0.0', port='5000', debug=True)
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)

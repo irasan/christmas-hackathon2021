@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
-from forms import LoginForm, RegisterForm
+from forms import LoginForm, RegisterForm, SmallKidLetterForm
 from flask_pymongo import PyMongo
 from config import Config
 import bcrypt
@@ -50,6 +50,16 @@ def login():
             # must have failed set flash message
             flash('Invalid username/password combination')
     return render_template("login.html", title="Sign In", form=form)
+
+
+@app.route('/get_small_kid_letter', methods=['GET', 'POST'])
+def get_small_kid_letter():
+    """Render letter template for small kid"""
+    # users.find_one
+    # if child < 7:
+    #     form = SmallKidLetterForm()
+    form = SmallKidLetterForm(request.form)
+    return render_template("letter_small_kid.html", title="Letter To Santa", form=form)
 
 
 @app.route('/logout')

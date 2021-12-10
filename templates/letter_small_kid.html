@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block nav_index %}active{% endblock %}
+{% block content %}
+    <section class="container">
+        <h1>Dear Santa,</h1>
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.child_name.label }}.
+                {{ form.child_age }} years old.
+            </p>
+            <p>
+                {% for subfield in form.radio %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr>
+                {% endfor %}
+                {{ form.behaviour.label }}
+            </p>
+            <p>
+                {{ form.present1.label }} and {{ form.present2.label }}.
+            </p>
+            <p>
+                And I promise to leave out<br>
+                {{ form.milk.label }}<br>
+                {{ form.cookies.label }}
+            </p>
+            <p>for you!</p>
+            <p>Merry Christmas, Santa!</p>
+            <p>
+                {{ form.say_hi.label }}
+            </p>
+            <p>
+            <p>{{ form.send_letter() }}</p>
+            </p>
+
+        </form>
+    </section>
+{% endblock %}

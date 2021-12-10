@@ -6,33 +6,38 @@
         <form method="POST" action="">
             {{ form.csrf_token }}
             <p>
-                {{ form.child_name.label }}.
+                {{ form.child_name.label }}
+                {{ form.child_name(size=12, maxlength=10) }}.
+            </p>
+            <p>
+                {{ form.child_age.label }}
                 {{ form.child_age }} years old.
             </p>
             <p>
-                {% for subfield in form.radio %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-                {% endfor %}
                 {{ form.behaviour.label }}
+                {{ form.behaviour }}
             </p>
             <p>
-                {{ form.present1.label }} and {{ form.present2.label }}.
+                {{ form.present1.label }}
+                {{ form.present1 }}
+                {{ form.present2.label }}
+                {{ form.present2 }}.
             </p>
             <p>
-                And I promise to leave out<br>
+                And I promise to leave out:<br>
+                {{ form.milk }}
                 {{ form.milk.label }}<br>
-                {{ form.cookies.label }}
+                {{ form.cookies }}
+                {{ form.cookies.label }}<br>
+                for you!
             </p>
-            <p>for you!</p>
             <p>Merry Christmas, Santa!</p>
             <p>
                 {{ form.say_hi.label }}
+                {{ form.say_hi }} for me!
             </p>
             <p>
-            <p>{{ form.send_letter() }}</p>
+            <p>{{ form.submit() }}</p>
             </p>
 
         </form>

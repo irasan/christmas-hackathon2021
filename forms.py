@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, RadioField, SelectField
-from wtforms.validators import DataRequired, Length, EqualTo, Email
+from wtforms import StringField, IntegerField, PasswordField, BooleanField, SubmitField, TextAreaField, RadioField, SelectField
+from wtforms.validators import DataRequired, Length, EqualTo, Email, NumberRange
 
 
 class LoginForm(FlaskForm):
@@ -25,15 +25,14 @@ class RegisterForm(FlaskForm):
 class SmallKidLetterForm(FlaskForm):
     child_name = StringField('My name is', validators=[DataRequired(),
                                                    Length(min=2, max=10)])
-    child_age = StringField('I am', validators=[DataRequired(),
-                                                   Length(min=2, max=10)])
+    child_age = IntegerField('I am', validators=[NumberRange(min=1, max=6)])
     behaviour = RadioField('This year I have been:',
                             choices=['Naughty', 'Nice',
                                      'A little bit of both'],
                             coerce=str)
-    present1 = StringField('What I would like the most this Christmas is...',
+    present1 = StringField('What I would like the most this Christmas is a',
                             validators=[DataRequired(), Length(min=2, max=30)])
-    present2 = StringField('and', validators=[DataRequired(),
+    present2 = StringField('and a', validators=[DataRequired(),
                                                    Length(min=2, max=30)])
     milk = BooleanField('Milk',  false_values=None)
     cookies = BooleanField('Cookies',  false_values=None)
@@ -45,4 +44,4 @@ class SmallKidLetterForm(FlaskForm):
                             coerce=str,
                             option_widget=None,
                             validate_choice=True)
-    send_letter = SubmitField('Send Letter')
+    submit = SubmitField('Send Letter')

@@ -1,7 +1,7 @@
 // Set the date we're counting down to
 var countDownDate = new Date("Dec 25, 2021 00:00:00").getTime();
 
-// Update the count down every 1 second
+  // Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get today's date and time
@@ -20,12 +20,14 @@ var x = setInterval(function() {
   document.getElementById("clock-inner").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
+  // If the count down is finished, write Happy Christmas
+  if (distance <= 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("flare").innerHTML = "";
+    document.getElementById("clock-inner").innerHTML = "Happy Christmas!";
   }
 }, 1000);
+
 
 $.fn.clock = function() {
     $(this).each(function() {
@@ -36,5 +38,5 @@ $.fn.clock = function() {
   };
   
   $(function() { 
-    $('span.flare').clock();
+    $('span#flare').clock();
   });

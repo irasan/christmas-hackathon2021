@@ -29,7 +29,7 @@ def login():
     """Login handler"""
     if session.get('logged_in'):
         if session['logged_in'] is True:
-            return redirect(url_for('index', title="Sign In"))
+            return redirect(url_for('profile', username=session['username'], title="Sign In"))
 
     form = LoginForm()
 
@@ -50,6 +50,43 @@ def login():
             # must have failed set flash message
             flash('Invalid username/password combination')
     return render_template("login.html", title="Sign In", form=form)
+
+
+@app.route("/profile/<username>")
+def profile(username):
+    if session.get('logged_in'):
+        # check if logged in user is the owner of the profile
+        if session['logged_in'] is True:
+            children = list(mongo.db.children.find({"parent": username}))
+
+            return render_template(
+                "profile.html", children=children)
+        return redirect(url_for("index"))
+
+    return redirect(url_for("login"))
+
+
+@app.route("/add_child", methods=["GET", "POST"])
+def add_child():
+    if "username" in session:
+        if request.method == "POST":
+            child = {
+                "name": request.form.get("name").lower(),
+                "age": request.form.get("age"),
+                "city": request.form.get("city"),
+                "country": request.form.get("country"),
+                "gifts": request.form.getlist("gifts"),
+                "questions": request.form.getlist("questions"),
+                "parent": session['username']
+            }
+            mongo.db.children.insert_one(child)
+
+            flash("Your Child Was Successfully Added")
+            return render_template("profile", username=session['username'])
+
+        return render_template("add_child.html")
+
+    return render_template("index.html")
 
 
 @app.route('/get_small_kid_letter', methods=['GET', 'POST'])

@@ -194,6 +194,11 @@ section.letter {
     background: #ef4348;
 }
 
+.navbar-brand:hover{
+    color: white;
+    text-shadow: 2px 2px 0 #ef4348, -1px -1px 0 #ef4348, 1px -1px 0 #ef4348, -1px 1px 0 #ef4348, 1px 1px 0 #ef4348;
+}
+
 #santa-sleigh{
     height: 500px;
     display: flex;

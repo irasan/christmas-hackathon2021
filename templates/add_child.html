@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block nav_index %}active{% endblock %}
+{% block content %}
+<section class="container">
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.child_name.label }}
+            {{ form.child_name(size=12, maxlength=10) }}.
+        </p>
+        <p>
+            {{ form.questions }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</section>
+{% endblock %}

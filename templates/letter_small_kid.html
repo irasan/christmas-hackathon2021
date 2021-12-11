@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block nav_letter_small_kid %}active{% endblock %}
+{% block content %}
+    <section class="container">
+        <form class="letter-to-santa snowman" method="POST" action="">
+            {{ form.csrf_token }}
+            <h1 class="dear-santa">Dear Santa,</h1>
+            <p>
+                {{ form.child_name.label }}
+                {{ form.child_name(size=12, maxlength=10) }}.
+            </p>
+            <p>
+                {{ form.child_age.label }}
+                {{ form.child_age }} years old.
+            </p>
+            <p>
+                {{ form.behaviour.label }}
+                {{ form.behaviour }}
+            </p>
+            <p>
+                {{ form.present1.label }}
+                {{ form.present1 }}
+                {{ form.present2.label }}
+                {{ form.present2 }}.
+            </p>
+            <p>
+                And I promise to leave out:
+            </p>
+            <p>
+                {{ form.milk }}
+                {{ form.milk.label }}<br>
+                {{ form.cookies }}
+                {{ form.cookies.label }}
+            </p>
+            <p>for you!</p>
+            <p>Merry Christmas, Santa!</p>
+            <p>
+                {{ form.say_hi.label }}
+                {{ form.say_hi }} for me!
+            </p>
+            <p>
+            <p>{{ form.submit() }}</p>
+            </p>
+
+        </form>
+    </section>
+{% endblock %}

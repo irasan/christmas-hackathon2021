@@ -164,4 +164,5 @@ def register():
 if __name__ == '__main__':
     app.config['TRAP_BAD_REQUEST_ERRORS'] = True
     app.config['DEBUG'] = True
-    app.run(host='0.0.0.0', port='5000', debug=True)
+    app.run(host=os.getenv("IP"), 
+            port=os.getenv("PORT"), debug=True)

@@ -107,21 +107,58 @@ def delete_account():
 @app.route('/get_small_kid_letter', methods=['GET', 'POST'])
 def get_small_kid_letter():
     """Render letter template for small kid"""
-    # users.find_one
-    # if child < 7:
-    #     form = SmallKidLetterForm()
     form = SmallKidLetterForm(request.form)
-    return render_template("letter_small_kid.html", title="Letter To Santa", form=form)
+    if "username" in session:
+        if request.method == "POST":
+            child = {
+                "name": request.form.get("child_name").lower(),
+                "age": request.form.get("child_age"),
+                "behaviour": request.form.get("behaviour"),
+                "gift1": request.form.get("present1"),
+                "gift2": request.form.get("present2"),
+                "milk": request.form.get("milk"),
+                "cookies": request.form.get("cookies"),
+                "say_hi": request.form.get("say_hi"),
+                "parent": session['username']
+            }
+            mongo.db.children.insert_one(child)
+
+            flash("Your Child Was Successfully Added")
+            return redirect(url_for("profile", username=session['username']))
+
+        return render_template("letter_small_kid.html", title="Letter To Santa", form=form)
+    return render_template("index.html")
 
 
 @app.route('/get_big_kid_letter', methods=['GET', 'POST'])
 def get_big_kid_letter():
     """Render letter template for small kid"""
-    # users.find_one
-    # if child < 7:
-    #     form = SmallKidLetterForm()
     form = BigKidLetterForm(request.form)
-    return render_template("letter_big_kid.html", title="Letter To Santa", form=form)
+    if "username" in session:
+        if request.method == "POST":
+            child = {
+                "name": request.form.get("child_name").lower(),
+                "age": request.form.get("child_age"),
+                "home": request.form.get("home"),
+                "homework": request.form.get("homework"),
+                "make_bed": request.form.get("make_bed"),
+                "brush_teeth": request.form.get("brush_teeth"),
+                "clean_room": request.form.get("clean_room"),
+                "gift1": request.form.get("present1"),
+                "gift2": request.form.get("present2"),
+                "gift3": request.form.get("present3"),
+                "friend": request.form.get("friend"),
+                "say_hi1": request.form.get("say_hi_1"),
+                "say_hi2": request.form.get("say_hi_2"),
+                "parent": session['username']
+            }
+            mongo.db.children.insert_one(child)
+
+            flash("Your Child Was Successfully Added")
+            return redirect(url_for("profile", username=session['username']))
+
+        return render_template("letter_big_kid.html", title="Letter To Santa", form=form)
+    return render_template("index.html")
 
 
 @app.route('/logout')

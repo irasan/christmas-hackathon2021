@@ -86,7 +86,7 @@ In addition to the First Time Visitor Goals, a Returning Visitor should be able 
 ### Colour Scheme
 
 * The website uses a colours typically related to Christmas.
-![alt text](https://github.com/irasan/christmas-hackathon2021/tree/main/static/images/palette.png "Colour palette")
+![alt text](static/images/palette.png "Colour palette")
 
 [Colour Palette - Coolers.co]()
 ![Colours used in this site]()
@@ -131,7 +131,7 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 
 ---
 #### Process Flowchart
-![alt text](https://github.com/irasan/christmas-hackathon2021/tree/main/static/images/flowchart.png "Process flowchart")
+![alt text](static/images/flowchart.png "Process flowchart")
 
 ---
 ### Future Features

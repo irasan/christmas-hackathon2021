@@ -1,8 +1,9 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
-from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm, AddChildForm
+from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm, EditChildForm
 from flask_pymongo import PyMongo
 from config import Config
 import certifi
+from bson.objectid import ObjectId
 import bcrypt
 import os
 if os.path.exists("env.py"):
@@ -70,67 +71,96 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/add_child", methods=["GET", "POST"])
-def add_child():
-    form = AddChildForm()
+@app.route("/edit_child/<child_id>", methods=["GET", "POST"])
+def edit_child(child_id):
+    child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
+    form = EditChildForm()
     if "username" in session:
         if request.method == "POST":
-            child = {
-                "name": request.form.get("child_name").lower(),
-                # "age": request.form.get("age"),
-                # "city": request.form.get("city"),
-                # "country": request.form.get("country"),
-                # "gifts": request.form.getlist("gifts"),
-                "questions": request.form.getlist("questions"),
-                "parent": session['username']
-            }
-            mongo.db.children.insert_one(child)
-
-            flash("Your Child Was Successfully Added")
-            return redirect("profile", username=session['username'])
-
-        return render_template("add_child.html", title="Add A Child", form=form)
-    return render_template("index.html")
-
-
-@app.route("/edit_child", methods=["GET", "POST"])
-def edit_child():
-    return
-
-
-@app.route("/delete_child", methods=["GET", "POST"])
-def delete_child():
-    return
+            mongo.db.children.find_one_and_update({"_id": ObjectId(child_id)}, 
+            { "$set": { "favorite": request.form.get("favorite"), 
+                    "nice_thing": request.form.get("nice_thing"),
+                    "wanted_behavior": [("do homework", request.form.get("homework")), 
+                                    ("be kind", request.form.get("be_kind")),
+                                    ("make bed", request.form.get("make_bed")),
+                                    ("clean room", request.form.get("clean_room")),
+                                    ("go to bed in time", request.form.get("bedtime"))]}})
+            return redirect(url_for("profile", username=session["username"]))
+        return render_template("edit_child.html", title="Edit Child", child=child, form=form)
+    return redirect(url_for("login"))
 
 
 @app.route("/download_letter")
 def download_letter():
-    return
+    return 
 
 
-@app.route("/delete_account", methods=["GET", "POST"])
-def delete_account():
-    return
+@app.route("/delete_account/<username>")
+def delete_account(username):
+    if "user" in session:
+        mongo.db.users.delete_one({"username": session["username"]})
+        mongo.db.children.delete_many({"parent": session["username"]})
+        flash("Your Account Was Successfully Deleted")
+        return redirect(url_for("index"))
+
+    return redirect(url_for("login"))
 
 
 @app.route('/get_small_kid_letter', methods=['GET', 'POST'])
 def get_small_kid_letter():
     """Render letter template for small kid"""
-    # users.find_one
-    # if child < 7:
-    #     form = SmallKidLetterForm()
     form = SmallKidLetterForm(request.form)
-    return render_template("letter_small_kid.html", title="Letter To Santa", form=form)
+    if "username" in session:
+        if request.method == "POST":
+            child = {
+                "name": request.form.get("child_name").lower(),
+                "age": request.form.get("child_age"),
+                "behaviour": request.form.get("behaviour"),
+                "gift1": request.form.get("present1"),
+                "gift2": request.form.get("present2"),
+                "milk": request.form.get("milk"),
+                "cookies": request.form.get("cookies"),
+                "say_hi": request.form.get("say_hi"),
+                "parent": session['username']
+            }
+            mongo.db.children.insert_one(child)
+
+            flash("Your Child Was Successfully Added")
+            return redirect(url_for("profile", username=session['username']))
+
+        return render_template("letter_small_kid.html", title="Letter To Santa", form=form)
+    return render_template("index.html")
 
 
 @app.route('/get_big_kid_letter', methods=['GET', 'POST'])
 def get_big_kid_letter():
     """Render letter template for small kid"""
-    # users.find_one
-    # if child < 7:
-    #     form = SmallKidLetterForm()
     form = BigKidLetterForm(request.form)
-    return render_template("letter_big_kid.html", title="Letter To Santa", form=form)
+    if "username" in session:
+        if request.method == "POST":
+            child = {
+                "name": request.form.get("child_name").lower(),
+                "age": request.form.get("child_age"),
+                "home": request.form.get("home"),
+                "homework": request.form.get("homework"),
+                "make_bed": request.form.get("make_bed"),
+                "brush_teeth": request.form.get("brush_teeth"),
+                "clean_room": request.form.get("clean_room"),
+                "gift1": request.form.get("present1"),
+                "gift2": request.form.get("present2"),
+                "gift3": request.form.get("present3"),
+                "friend": request.form.get("friend"),
+                "say_hi1": request.form.get("say_hi_1"),
+                "say_hi2": request.form.get("say_hi_2"),
+                "parent": session['username']
+            }
+            mongo.db.children.insert_one(child)
+
+            flash("Your Child Was Successfully Added")
+            return redirect(url_for("profile", username=session['username']))
+
+        return render_template("letter_big_kid.html", title="Letter To Santa", form=form)
+    return render_template("index.html")
 
 
 @app.route('/logout')

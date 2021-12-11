@@ -27,23 +27,17 @@
 }
 
 body {
-    /* background-color: #37bfc1; */
     width: 100%;
 }
+
 h1{
-    /* background-color: #ffffffc9; */
     width: 50%;
     margin: 5vh auto;
     padding: 20px;
     text-align: center;
 }
-/* 
-h1.dear-santa {
-    background-color: #ef4348;
-} */
 
 form {
-    background-color: #ffffffc9;
     width: 50%;
     margin: 5vh auto;
     padding: 20px;
@@ -56,18 +50,47 @@ a {
     -webkit-text-decoration-skip: objects;
 }
 
-form.letter-to-santa {
-    background-image: url('../images/snowman.jpg');
+.btn-primary {
+    color: #fff;
+    background-color: #145840;
+    border-color: #145840;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0e6d4d;
+    border-color: #0e6d4d;
+}
+
+.margin-top {
+    margin-top: 220px;
+}
+
+div.dear-santa {
+    background-image: url('../images/dearSanta.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
+}
+
+section.letter {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: static;
-    height: 80vh;
-    overflow-y: scroll;
     width: 100%;
     font-family: 'Fuzzy Bubbles', cursive;
     font-size: 24px;
     font-weight: 700;
     color: white;
+}
+
+.letter-to-santa1 {
+    background-image: url('../images/snowman.jpg');
+}
+
+.letter-to-santa2 {
+    background-image: url('../images/balls.jpg');
 }
 
 /* clock */
@@ -163,6 +186,14 @@ form.letter-to-santa {
    -webkit-text-stroke: 1px white;
 }
 
+.navbar-brand{
+    margin-top: 15px;
+}
+
+.navbar-toggler{
+    background: #ef4348;
+}
+
 #santa-sleigh{
     height: 500px;
     display: flex;
@@ -184,24 +215,32 @@ form.letter-to-santa {
     }
 }
 
-/* Media Queries Min*/
+/* Media Queries */
 
-/* Medium Screen Size */
+/* x-small screen size */
+@media screen and (max-width: 576px) {
+    .clock {
+        font-size: 20px;
+        padding-top: 15px;
+    }
+}
+
+/* small screen size */
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .clock {
+        font-size: 24px;
+        padding-top: 10px;
+    }
+}
+
+/* medium screen size */
 @media screen and (min-width: 768px) {
     form.letter-to-santa {
         width: 85%;
     }
 }
-/* Large Screen Size */
-@media screen and (min-width: 1400px) {
-    form.letter-to-santa {
-        width: 70%;
-    }
-}
+/* large Screen Size */
 
-/* Media Queries Max*/
-
-/* Large Screen Size */
 @media screen and (max-width: 1400px) {
     .snow-bg{
         height: 600px;
@@ -218,7 +257,7 @@ form.letter-to-santa {
         height: 300px;
     }
 }
-/* Medium Screen Size */
+/* medium Screen Size */
 @media screen and (max-width: 900px) {
     .snow-bg{
         height: 300px;

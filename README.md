@@ -86,6 +86,7 @@ In addition to the First Time Visitor Goals, a Returning Visitor should be able 
 ### Colour Scheme
 
 * The website uses a colours typically related to Christmas.
+![alt text](static/images/palette.png "Colour palette")
 
 [Colour Palette - Coolers.co]()
 ![Colours used in this site]()
@@ -129,7 +130,10 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 * A 12 day update-countdown for how Santa is preparing for Christmas.
 
 ---
+#### Process Flowchart
+![alt text](static/images/flowchart.png "Process flowchart")
 
+---
 ### Future Features
 
 * 
@@ -356,7 +360,8 @@ All testing and project barriers and solutions has been documented here - [TESTI
 
 ### Media
 
-* 
+* [Pixabay](https://pixabay.com/illustrations/christmas-motif-christmas-card-3774320/)
+* [Pixabay](https://pixabay.com/illustrations/christmas-motif-christmas-card-3794751/)
 
 ### Acknowledgements
 

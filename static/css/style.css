@@ -50,6 +50,18 @@ a {
     -webkit-text-decoration-skip: objects;
 }
 
+.btn-primary {
+    color: #fff;
+    background-color: #145840;
+    border-color: #145840;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0e6d4d;
+    border-color: #0e6d4d;
+}
+
 .margin-top {
     margin-top: 220px;
 }

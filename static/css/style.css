@@ -22,25 +22,25 @@
 }
 
 .container-fluid{
-    background-color: #37bfc1;
+    /* background-color: #37bfc1; */
     padding: 20px;
 }
 
 body {
-    background-color: #37bfc1;
+    /* background-color: #37bfc1; */
     width: 100%;
 }
 h1{
-    background-color: #ffffffc9;
+    /* background-color: #ffffffc9; */
     width: 50%;
     margin: 5vh auto;
     padding: 20px;
     text-align: center;
 }
-
+/* 
 h1.dear-santa {
-    background-color: #146B3A;
-}
+    background-color: #ef4348;
+} */
 
 form {
     background-color: #ffffffc9;
@@ -57,8 +57,13 @@ a {
 }
 
 form.letter-to-santa {
+    background-image: url('../images/snowman.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: static;
+    height: 80vh;
+    overflow-y: scroll;
     width: 100%;
-    background-color: #146B3A;
     font-family: 'Fuzzy Bubbles', cursive;
     font-size: 24px;
     font-weight: 700;

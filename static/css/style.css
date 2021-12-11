@@ -186,6 +186,19 @@ section.letter {
    -webkit-text-stroke: 1px white;
 }
 
+.navbar-brand{
+    margin-top: 15px;
+}
+
+.navbar-toggler{
+    background: #ef4348;
+}
+
+.navbar-brand:hover{
+    color: white;
+    text-shadow: 2px 2px 0 #ef4348, -1px -1px 0 #ef4348, 1px -1px 0 #ef4348, -1px 1px 0 #ef4348, 1px 1px 0 #ef4348;
+}
+
 #santa-sleigh{
     height: 500px;
     display: flex;
@@ -257,5 +270,10 @@ section.letter {
     #santa-sleigh{
         height: 200px;
         margin-top: 50px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .navbar-brand{
+        font-size: 2.5rem!important;
     }
 }

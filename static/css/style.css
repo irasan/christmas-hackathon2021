@@ -39,7 +39,7 @@ h1{
 
 form {
     width: 50%;
-    margin: 5vh auto;
+    margin: 0 auto;
     padding: 20px;
 }
 
@@ -50,6 +50,11 @@ a {
     -webkit-text-decoration-skip: objects;
 }
 
+.trans-panel {
+    background-color: rgba(55, 191, 193, .6);
+    color: #fcfcfb;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #145840;
@@ -57,7 +62,7 @@ a {
 }
 
 .btn-primary:hover {
-    color: #fff;
+    color: #fcfcfb;
     background-color: #0e6d4d;
     border-color: #0e6d4d;
 }
@@ -70,19 +75,22 @@ div.dear-santa {
     background-image: url('../images/dearSanta.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100px;
+    width: auto;
+    height: 100%;
 }
 
 section.letter {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: static;
+    background-position: center;
     width: 100%;
     font-family: 'Fuzzy Bubbles', cursive;
     font-size: 24px;
     font-weight: 700;
-    color: white;
+    color: fcfcfb;
+    background-color: #0c5460;
+    opacity: .7;
+
 }
 
 .letter-to-santa1 {

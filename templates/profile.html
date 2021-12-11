@@ -11,9 +11,34 @@
     </p>
     <a href="{{ url_for('add_child') }}" class="btn btn-lg btn-warning">Add a child</a>
     {% else %}
-        {% for child in children %}
-        <h4>{{ child.name }}</h4>
-        {% endfor %}
+        
+        <div id="accordion">
+            {% for child in children %}
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    {{ child.child_name }}
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Age: {{ child.age }}<br>
+                        You would like you kid to:<br>
+                        {{ child.questions }}
+                    </p>
+                    <a href="{{ url_for('download_letter') }}">Download child's letter to Santa</a>
+                    <a href="{{ url_for('edit_child') }}">Edit</a>
+                    <a href="{{ url_for('delete_child') }}">Delete</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('delete_account') }}">Delete my account</a>
+        
     {% endif %}
     
 

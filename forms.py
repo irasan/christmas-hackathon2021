@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, PasswordField, BooleanField, SubmitField, TextAreaField, RadioField, SelectField
+from wtforms import StringField, IntegerField, PasswordField, BooleanField, SubmitField, TextAreaField, RadioField, SelectField, SelectMultipleField
 from wtforms.validators import DataRequired, Length, EqualTo, Email, NumberRange
 
 
@@ -77,3 +77,18 @@ class BigKidLetterForm(FlaskForm):
                             option_widget=None,
                             validate_choice=True)
     submit = SubmitField('Send Letter')
+
+
+class AddChildForm(FlaskForm):
+    child_name = StringField("Child's name", validators=[DataRequired(),
+                                                   Length(min=2, max=15)])
+    questions = SelectMultipleField('What would you like your child to do more often?',
+                            choices=[
+                            'Go to bed in time', 'Brush teeth everyday', 'Clean the room',
+                            'Make bed', 'Do homework', 'Be kind'])                                               
+    # bedtime = BooleanField('Go to bed in time', false_values=None)                                               
+    # brush_teeth = BooleanField('Brush teeth everyday', false_values=None)
+    # clean_room = BooleanField('Clean the room', false_values=None)
+    # make_bed = BooleanField('Make bed', false_values=None)
+    # homework = BooleanField('Do homework', false_values=None)
+    submit = SubmitField('Add')

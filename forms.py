@@ -49,10 +49,10 @@ class SmallKidLetterForm(FlaskForm):
 
 class BigKidLetterForm(FlaskForm):
     child_name = StringField('My name is', validators=[DataRequired(),
-                                                   Length(min=2, max=10)])
-    child_age = IntegerField('I am', validators=[NumberRange(min=1, max=6)])
+                                Length(min=2, max=10)])
+    child_age = IntegerField('I am', validators=[NumberRange(min=7, max=18)])
     home = StringField('I live in', validators=[DataRequired(),
-                                                   Length(min=4, max=16)])
+                        Length(min=4, max=16)])
     brush_teeth = BooleanField('Brushed my teeth everyday', false_values=None)
     clean_room = BooleanField('Cleaned my room', false_values=None)
     make_bed = BooleanField('Made my bed', false_values=None)

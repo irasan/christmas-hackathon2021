@@ -169,7 +169,5 @@ section.letter {
 }
 /* Large screen size */
 @media screen and (min-width: 1400px) {
-    form.letter-to-santa {
-        /* width: 70%; */
-    }
+    
 }

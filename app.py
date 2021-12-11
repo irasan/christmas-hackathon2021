@@ -94,11 +94,6 @@ def edit_child():
     return
 
 
-@app.route("/delete_child", methods=["GET", "POST"])
-def delete_child():
-    return
-
-
 @app.route("/download_letter")
 def download_letter():
     return

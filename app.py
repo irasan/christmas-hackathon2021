@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
-from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm
+from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm, AddChildForm
 from flask_pymongo import PyMongo
 from config import Config
 import bcrypt
@@ -68,25 +68,45 @@ def profile(username):
 
 @app.route("/add_child", methods=["GET", "POST"])
 def add_child():
+    form = AddChildForm()
     if "username" in session:
         if request.method == "POST":
             child = {
-                "name": request.form.get("name").lower(),
-                "age": request.form.get("age"),
-                "city": request.form.get("city"),
-                "country": request.form.get("country"),
-                "gifts": request.form.getlist("gifts"),
+                "name": request.form.get("child_name").lower(),
+                # "age": request.form.get("age"),
+                # "city": request.form.get("city"),
+                # "country": request.form.get("country"),
+                # "gifts": request.form.getlist("gifts"),
                 "questions": request.form.getlist("questions"),
                 "parent": session['username']
             }
             mongo.db.children.insert_one(child)
 
             flash("Your Child Was Successfully Added")
-            return render_template("profile", username=session['username'])
+            return redirect("profile", username=session['username'])
 
-        return render_template("add_child.html")
-
+        return render_template("add_child.html", title="Add A Child", form=form)
     return render_template("index.html")
+
+
+@app.route("/edit_child", methods=["GET", "POST"])
+def edit_child():
+    return
+
+
+@app.route("/delete_child", methods=["GET", "POST"])
+def delete_child():
+    return
+
+
+@app.route("/download_letter")
+def download_letter():
+    return
+
+
+@app.route("/delete_account", methods=["GET", "POST"])
+def delete_account():
+    return
 
 
 @app.route('/get_small_kid_letter', methods=['GET', 'POST'])

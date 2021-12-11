@@ -32,6 +32,25 @@
                         <a class="nav-link" href="{{ url_for('index') }}">Home
                         </a>
                     </li>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Letter To Santa
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{{ url_for('get_small_kid_letter') }}">Age 2-6</a>
+                          <a class="dropdown-item" href="#">Age 7-12</a>
+                        </div>
+                      </div>
+                    <li class="nav-item {% block nav_get_small_kid_letter %}{% endblock %}">
+                        <a class="nav-link" href="{{ url_for('get_small_kid_letter') }}">
+                            Letter Age 2-6
+                        </a>
+                    </li>
+                    <li class="nav-item {% block nav_get_big_kid_letter %}{% endblock %}">
+                        <a class="nav-link" href="{{ url_for('get_big_kid_letter') }}">
+                            Letter Age 7-12
+                        </a>
+                    </li>
                     {% if 'username' not in session %}
                         <li class="nav-item">
                             <a class="nav-link {% block nav_login %}{% endblock %}" href="{{ url_for('login') }}">Login</a>

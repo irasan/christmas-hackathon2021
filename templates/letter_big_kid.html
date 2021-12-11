@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block nav_index %}active{% endblock %}
+{% block nav_get_big_kid_letter %}active{% endblock %}
 {% block content %}
 <section class="container">
     <form method="POST" action="">
         {{ form.csrf_token }}
-        <h1 class="dear-santa text-white">Dear Santa,</h1>
-        <p class="text-white">
+        <h1 class="dear-santa">Dear Santa,</h1>
+        <p>
             {{ form.child_name.label }}
             {{ form.child_name(size=12, maxlength=10) }}.
         </p>

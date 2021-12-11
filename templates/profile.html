@@ -9,7 +9,7 @@
         Here you can add children, save, edit or delete their details and generate their letters to Santa.<br>
         Start by adding a child
     </p>
-    <a href="{{ url_for('add_child') }}" class="btn btn-lg btn-warning">Add a child</a>
+    
     {% else %}
         
         <div id="accordion">
@@ -37,6 +37,7 @@
             </div>
             {% endfor %}
         </div>
+        <a href="{{ url_for('add_child') }}" class="btn btn-lg btn-warning">Add a child</a>
         <a href="{{ url_for('delete_account') }}">Delete my account</a>
         
     {% endif %}

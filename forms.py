@@ -18,12 +18,6 @@ class RegisterForm(FlaskForm):
                                          EqualTo('password2', message='Passwords must match')])
     password2 = PasswordField('Repeat Password')
     email = StringField('Email Address', validators=[Length(min=6, max=35)])
-    childrenNo = RadioField('Number of children',
-                            choices=[1, 2, 3, 4, 5],
-                            validate_choice=True)
-    childsAge = RadioField('Age of the child',
-                            choices=["1-7 years old", "8-12 years old"],
-                            validate_choice=True)
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Register')
 

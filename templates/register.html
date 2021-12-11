@@ -41,35 +41,9 @@
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
-        <p id='childrenNo'>
-            {% for subfield in form.childrenNo %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-            {% endfor %}
-        </p>
-        {% for n in range(1, 6) %}
-            <div id="element{{n}}" class="d-none">
-                {{ form.childsAge.label }} {{n }} <br>
-                {{ form.childsAge(size=8) }}<br>
-            
-            </div>
-        {% endfor %}
         <p>
             {{ form.remember_me() }} {{ form.remember_me.label }}
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-
-    <script>
-        function addFields(){
-          var childrenNo = document.getElementById('childrenNo:checked').value;
-            if(childrenNo === 1){
-                document.getElementById('element1').style.display = 'block';
-            } else if(childrenNo === 2){
-                document.getElementById('element1').style.display = 'block';
-                document.getElementById('element2').style.display = 'block';
-          }
-        </script>
 {% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block nav_register %}active{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1>Edit {{ child.name|title }}'s Details</h1>
+        <form method="POST" action="" class="letter-to-santa">
+            {{ form.csrf_token }}
+            <p> Please tick a few things, you would like your child to do better/more often:<br>
+                {{ form.brush_teeth }}
+                {{ form.brush_teeth.label }}<br>
+                {{ form.clean_room }}
+                {{ form.clean_room.label }}<br>
+                {{ form.make_bed }}
+                {{ form.make_bed.label }}<br>
+                {{ form.homework }}
+                {{ form.homework.label }}<br>
+                {{ form.be_kind }}
+                {{ form.be_kind.label }}<br>
+            </p>
+            <p> Something special the child did/said:
+                {{ form.nice_thing.label }}
+                {{ form.nice_thing }}
+            </p>
+            <p> Child's favorite character/person:
+                {{ form.favorite.label }}
+                {{ form.favorite }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+</div>
+{% endblock %}

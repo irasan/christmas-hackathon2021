@@ -78,6 +78,20 @@ form.letter-to-santa {
     text-align: center;
     background: #fcfcfb;
     opacity:0.9;
+
+
+    animation-name: clock;
+    animation-duration: 5s;
+    animation-timing-function: forwards;
+}
+
+@keyframes clock {
+    0% {
+      transform: translate(-100vw, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
 }
 
 /* glittery letters taken from here https://monsterspost.com/20-codepens-to-give-christmas-mood-to-your-website/ */
@@ -153,7 +167,7 @@ form.letter-to-santa {
     height: 500px;
     display: flex;
     margin: auto;
-    margin-top: 15vh;
+    margin-top: 100px;
     overflow: hidden;
 
     animation-name: santa-sleigh;
@@ -170,16 +184,47 @@ form.letter-to-santa {
     }
 }
 
-/* Media Queries */
-/* medium screen size */
+/* Media Queries Min*/
+
+/* Medium Screen Size */
 @media screen and (min-width: 768px) {
     form.letter-to-santa {
         width: 85%;
     }
 }
-/* Large screen size */
+/* Large Screen Size */
 @media screen and (min-width: 1400px) {
     form.letter-to-santa {
         width: 70%;
+    }
+}
+
+/* Media Queries Max*/
+
+/* Large Screen Size */
+@media screen and (max-width: 1400px) {
+    .snow-bg{
+        height: 600px;
+    }
+    #santa-sleigh{
+        height: 400px;
+    }
+}
+@media screen and (max-width: 1150px) {
+    .snow-bg{
+        height: 500px;
+    }
+    #santa-sleigh{
+        height: 300px;
+    }
+}
+/* Medium Screen Size */
+@media screen and (max-width: 900px) {
+    .snow-bg{
+        height: 300px;
+    }
+    #santa-sleigh{
+        height: 200px;
+        margin-top: 50px;
     }
 }

@@ -2,47 +2,61 @@
 {% block nav_register %}active{% endblock %}
 {% block content %}
 
-<div>
+<div class="container">
     <h1>My profile</h1>
-    {% if children|length < 1 %}
-    <p style="color: white">Hi there! <br>
-        Here you can add children, save, edit or delete their details and generate their letters to Santa.<br>
-        Start by adding a child
-    </p>
-    
-    {% else %}
-        
-        <div id="accordion">
-            {% for child in children %}
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    {{ child.child_name }}
-                  </button>
-                </h5>
-              </div>
-          
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <p>Age: {{ child.age }}<br>
-                        You would like you kid to:<br>
-                        {{ child.questions }}
-                    </p>
-                    <a href="{{ url_for('download_letter') }}">Download child's letter to Santa</a>
-                    <a href="{{ url_for('edit_child') }}">Edit</a>
-                    <a href="{{ url_for('delete_child') }}">Delete</a>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-        </div>
-        <a href="{{ url_for('add_child') }}" class="btn btn-lg btn-warning">Add a child</a>
-        <a href="{{ url_for('delete_account') }}">Delete my account</a>
-        
+    {% if children|length > 0 %}
+    <div class="mb-4">
+      {% for child in children %}
+        <h2>{{ child.name|title }}</h2>
+        {% if child.wanted_behavior %}
+        <p><strong style="margin-top: 20px;">Your child's favourite person/character:</strong><br>
+          {{ child.favorite }}<br>
+        <strong style="margin-top: 20px;">You would like your kid to:</strong><br>
+        {% for item in child.wanted_behavior %}
+          {% if item[1] == 'y' %}
+            {{ item[0] }}<br>
+          {% endif %}
+        {% endfor %}
+        <strong style="margin-top: 20px;">Special thing your child did/said:</strong><br>
+        {{ child.nice_thing }}<br>
+        <a href="{{ url_for('edit_child', child_id=child._id) }}">Edit</a>
+
+        {% else %}
+          We will send your child a letter from Santa. If you'd like it to be personalised, please answer the following questions:
+        <a href="{{ url_for('edit_child', child_id=child._id) }}">Answer</a>
+        {% endif %}
+        </p>
+        <a href="{{ url_for('download_letter') }}" class="mb-5">Download {{ child.name|title }}'s letter to Santa</a>
+      {% endfor %}
+    </div>
     {% endif %}
-    
+
+    <p style="color: white">
+        To create a letter to Santa pick one of the options below:
+    </p>
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ url_for('static', filename='images/stamp.jpg') }}" class="card-img-top" alt="christmas_stamp">
+          <div class="card-body">
+            <h5 class="card-title">Letters for 1-6 years olds</h5>
+            <a href="{{ url_for('get_small_kid_letter') }}" class="btn btn-primary">Create a letter</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ url_for('static', filename='images/stamp1.jpg') }}" class="card-img-top" alt="christmas_stamp">
+          <div class="card-body">
+            <h5 class="card-title">Letters for 7-12 years olds</h5>
+            <a href="{{ url_for('get_big_kid_letter') }}" class="btn btn-primary">Create a letter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+           
+    <a href="{{ url_for('delete_account', username=session['username']) }}" style="color:red; margin-top:30px; float:right; border:1px solid;"
+    onclick="return confirm('Are you sure you want to delete this item?');">Delete my account</a>   
 
 </div>
-
 {% endblock %}

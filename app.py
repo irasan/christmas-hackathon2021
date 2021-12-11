@@ -2,6 +2,7 @@ from flask import Flask, render_template, flash, redirect, url_for, request, ses
 from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm, AddChildForm
 from flask_pymongo import PyMongo
 from config import Config
+import certifi
 import bcrypt
 import os
 if os.path.exists("env.py"):

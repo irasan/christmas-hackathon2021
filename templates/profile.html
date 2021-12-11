@@ -8,9 +8,23 @@
     <div class="mb-4">
       {% for child in children %}
         <h2>{{ child.name|title }}</h2>
-        <p>You would like your kid to:<br>
-          {{ child.questions }}
-          <a href="{{ url_for('edit_child') }}">Edit</a>
+        {% if child.wanted_behavior %}
+        <p><strong style="margin-top: 20px;">Your child's favourite person/character:</strong><br>
+          {{ child.favorite }}<br>
+        <strong style="margin-top: 20px;">You would like your kid to:</strong><br>
+        {% for item in child.wanted_behavior %}
+          {% if item[1] == 'y' %}
+            {{ item[0] }}<br>
+          {% endif %}
+        {% endfor %}
+        <strong style="margin-top: 20px;">Special thing your child did/said:</strong><br>
+        {{ child.nice_thing }}<br>
+        <a href="{{ url_for('edit_child', child_id=child._id) }}">Edit</a>
+
+        {% else %}
+          We will send your child a letter from Santa. If you'd like it to be personalised, please answer the following questions:
+        <a href="{{ url_for('edit_child', child_id=child._id) }}">Answer</a>
+        {% endif %}
         </p>
         <a href="{{ url_for('download_letter') }}" class="mb-5">Download {{ child.name|title }}'s letter to Santa</a>
       {% endfor %}
@@ -41,9 +55,8 @@
       </div>
     </div>
            
-    <a href="{{ url_for('delete_account') }}" style="color:red; margin-top:30px; float:right; border:1px solid;">Delete my account</a>
-    
+    <a href="{{ url_for('delete_account', username=session['username']) }}" style="color:red; margin-top:30px; float:right; border:1px solid;"
+    onclick="return confirm('Are you sure you want to delete this item?');">Delete my account</a>   
 
 </div>
-
 {% endblock %}

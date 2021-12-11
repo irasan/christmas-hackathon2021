@@ -76,11 +76,11 @@ def edit_child(child_id):
             mongo.db.children.find_one_and_update({"_id": ObjectId(child_id)}, 
             { "$set": { "favorite": request.form.get("favorite"), 
                     "nice_thing": request.form.get("nice_thing"),
-                    "wanted_behavior": [("homework", request.form.get("homework")), 
-                                    ("be_kind", request.form.get("be_kind")),
-                                    ("make_bed", request.form.get("make_bed")),
-                                    ("clean_room", request.form.get("clean_room")),
-                                    ("bedtime", request.form.get("bedtime"))]}})
+                    "wanted_behavior": [("do homework", request.form.get("homework")), 
+                                    ("be kind", request.form.get("be_kind")),
+                                    ("make bed", request.form.get("make_bed")),
+                                    ("clean room", request.form.get("clean_room")),
+                                    ("go to bed in time", request.form.get("bedtime"))]}})
             return redirect(url_for("profile", username=session["username"]))
         return render_template("edit_child.html", title="Edit Child", child=child, form=form)
     return redirect(url_for("login"))

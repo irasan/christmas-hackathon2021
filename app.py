@@ -2,7 +2,6 @@ from flask import Flask, render_template, flash, redirect, url_for, request, ses
 from forms import LoginForm, RegisterForm, SmallKidLetterForm, BigKidLetterForm, EditChildForm
 from flask_pymongo import PyMongo
 from config import Config
-import certifi
 from bson.objectid import ObjectId
 import bcrypt
 import os

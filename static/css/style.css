@@ -27,11 +27,10 @@
 }
 
 body {
-    /* background-color: #37bfc1; */
     width: 100%;
 }
+
 h1{
-    /* background-color: #ffffffc9; */
     width: 50%;
     margin: 5vh auto;
     padding: 20px;
@@ -39,7 +38,6 @@ h1{
 }
 
 form {
-    /* background-color: #ffffffc9; */
     width: 50%;
     margin: 5vh auto;
     padding: 20px;
@@ -52,8 +50,19 @@ a {
     -webkit-text-decoration-skip: objects;
 }
 
-section.letter-to-santa {
-    background-image: url('../images/snowman.jpg');
+.margin-top {
+    margin-top: 220px;
+}
+
+div.dear-santa {
+    background-image: url('../images/dearSanta.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
+}
+
+section.letter {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: static;
@@ -64,12 +73,12 @@ section.letter-to-santa {
     color: white;
 }
 
-div.dear-santa {
-    background-image: url('../images/dearSanta.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100px;
+.letter-to-santa1 {
+    background-image: url('../images/snowman.jpg');
+}
+
+.letter-to-santa2 {
+    background-image: url('../images/balls.jpg');
 }
 
 /* clock */
@@ -161,6 +170,6 @@ div.dear-santa {
 /* Large screen size */
 @media screen and (min-width: 1400px) {
     form.letter-to-santa {
-        width: 70%;
+        /* width: 70%; */
     }
 }

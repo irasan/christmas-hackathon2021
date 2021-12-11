@@ -4,8 +4,8 @@
 <section class="container">
     <form method="POST" action="">
         {{ form.csrf_token }}
-        <h1>Dear Santa,</h1>
-        <p>
+        <h1 class="dear-santa text-white">Dear Santa,</h1>
+        <p class="text-white">
             {{ form.child_name.label }}
             {{ form.child_name(size=12, maxlength=10) }}.
         </p>

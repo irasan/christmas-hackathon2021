@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Are+You+Serious&family=Butterfly+Kids&family=Fuzzy+Bubbles:wght@400;700&family=Lato:wght@100;300;400;700;900&display=swap');
 .red {
     color: #ef4348;
 }
@@ -37,6 +38,10 @@ h1{
     text-align: center;
 }
 
+h1.dear-santa {
+    background-color: #146B3A;
+}
+
 form {
     background-color: #ffffffc9;
     width: 50%;
@@ -50,6 +55,15 @@ a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
+
+form.letter-to-santa {
+    width: 100%;
+    background-color: #146B3A;
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-size: 24px;
+    font-weight: 700;
+}
+
 /* clock */
 .clock {
     height: 60px;
@@ -127,4 +141,18 @@ a {
     font-size: 2rem;
     font-family: 'Luckiest Guy', cursive;
    -webkit-text-stroke: 1px white;
+}
+
+/* Media Queries */
+/* medium screen size */
+@media screen and (min-width: 768px) {
+    form.letter-to-santa {
+        width: 85%;
+    }
+}
+/* Large screen size */
+@media screen and (min-width: 1400px) {
+    form.letter-to-santa {
+        width: 70%;
+    }
 }

@@ -2,61 +2,53 @@
 {% block nav_register %}active{% endblock %}
 {% block content %}
 
-<div class="container">
-    <h1>My profile</h1>
-    {% if children|length > 0 %}
-    <div class="mb-4">
-      {% for child in children %}
-        <h2>{{ child.name|title }}</h2>
-        {% if child.wanted_behavior %}
-        <p><strong style="margin-top: 20px;">Your child's favourite person/character:</strong><br>
-          {{ child.favorite }}<br>
-        <strong style="margin-top: 20px;">You would like your kid to:</strong><br>
-        {% for item in child.wanted_behavior %}
-          {% if item[1] == 'y' %}
-            {{ item[0] }}<br>
-          {% endif %}
-        {% endfor %}
-        <strong style="margin-top: 20px;">Special thing your child did/said:</strong><br>
-        {{ child.nice_thing }}<br>
-        <a href="{{ url_for('edit_child', child_id=child._id) }}">Edit</a>
-        <a href="{{ url_for('download_response', child_id=child._id) }}">Download letter from Santa</a>
-
-        {% else %}
-          We will send your child a letter from Santa. If you'd like it to be personalised, please answer the following questions:
-        <a href="{{ url_for('edit_child', child_id=child._id) }}">Answer</a>
-        {% endif %}
-        </p>
-        <a href="{{ url_for('download_letter', child_id=child._id) }}" class="mb-5">Download {{ child.name|title }}'s letter to Santa</a>
-      {% endfor %}
-    </div>
-    {% endif %}
-
-    <p style="color: white">
-        To create a letter to Santa pick one of the options below:
-    </p>
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="card" style="width: 18rem;">
-          <img src="{{ url_for('static', filename='images/stamp.jpg') }}" class="card-img-top" alt="christmas_stamp">
-          <div class="card-body">
-            <h5 class="card-title">Letters for 1-6 years olds</h5>
-            <a href="{{ url_for('get_small_kid_letter') }}" class="btn btn-primary">Create a letter</a>
-          </div>
-        </div>
+<div class="container profile">
+  <h1>My profile</h1>
+  {% if children|length > 0 %}
+  <div class="row">
+    {% for child in children %}
+    <div class="card mb-4 mx-auto" style="width: 80%;">
+      <div class="card-body">
+        <h5 class="card-title">{{ child.name|title }} - {{ child.age }} y.o.</h5>
+        <a href="{{ url_for('download_letter', child_id=child._id) }}" class="mb-5">Download {{ child.name|title }}'s
+          letter to Santa <i class="fas fa-arrow-circle-down"></i></a>
+        <p class="card-text">Here you can download a response letter from Santa to {{ child.name|title }}. <br>
+          If you'd like to personalise it, please press 
+          <a href="{{ url_for('edit_child', child_id=child._id) }}" class="card-link">Edit
+            <i class="fas fa-pencil-alt"></i></a></p>
+        
+        <a href="{{ url_for('download_response', child_id=child._id) }}" class="card-link">Download Santa's response
+          <i class="fas fa-envelope-open"></i></a>
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="card" style="width: 18rem;">
-          <img src="{{ url_for('static', filename='images/stamp1.jpg') }}" class="card-img-top" alt="christmas_stamp">
-          <div class="card-body">
-            <h5 class="card-title">Letters for 7-12 years olds</h5>
-            <a href="{{ url_for('get_big_kid_letter') }}" class="btn btn-primary">Create a letter</a>
-          </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <h3 style="text-align: center; margin: 5vh;">To create a letter to Santa pick one of the options below:</h3>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ url_for('static', filename='images/stamp.jpg') }}" class="card-img-top" alt="christmas_stamp">
+        <div class="card-body">
+          <h5 class="card-title">Letters for 1-6 years olds</h5>
+          <a href="{{ url_for('get_small_kid_letter') }}" class="btn btn-primary">Create a letter</a>
         </div>
       </div>
     </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ url_for('static', filename='images/stamp1.jpg') }}" class="card-img-top" alt="christmas_stamp">
+        <div class="card-body">
+          <h5 class="card-title">Letters for 7-12 years olds</h5>
+          <a href="{{ url_for('get_big_kid_letter') }}" class="btn btn-primary">Create a letter</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <a href="{{ url_for('delete_account', username=session['username']) }}" style="color:red; margin-top:30px; float:right; border:1px solid;"
+  <a href="{{ url_for('delete_account', username=session['username']) }}"
+    style="margin-top:2vh; margin-bottom:1vh;float:right;" class="btn btn-danger"
     onclick="return confirm('Are you sure you want to delete this item?');">Delete my account</a>
 
 </div>

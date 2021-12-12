@@ -129,6 +129,11 @@ section.letter {
   color: #0e6d4d;
 }
 
+/* profile */
+.profile {
+  background-color: #37bfc1
+}
+
 @keyframes clock {
   0% {
     transform: translate(-100vw, 0);

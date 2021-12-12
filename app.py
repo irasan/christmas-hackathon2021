@@ -100,14 +100,20 @@ def download_response(child_id):
     child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
     line_one = f"Dear {child.get('name')}!".title()
     line_two = "Can you believe that Christmas is so close? The North pole is a busy place this time of the year."
-    nice_thing = f"I checked my list and I was delighted to see your name on the nice list. I was very impressed how you {child.get('nice_thing')}."
+    if child.get('nice_thing'):
+        nice_thing = f"I checked my list and I was delighted to see your name on the nice list. I was very impressed how you {child.get('nice_thing')}."
+    else:
+        nice_thing = "I checked my list and I was delighted to see your name on the nice list."
     mylist = []
     for n in child.get('wanted_behavior'):
         if n[1] == 'y':
             mylist.append(n[0])
     wanted_list = ''.join(mylist);
-    recommendation = f"Now {wanted_list} and remember the spirit of Christmas all year long!"
-    closing = f"Merry Christmas! By the way, {child.get('favorite')} is my favorite too!"
+    recommendation = f"Now {wanted_list} listen to your parents and remember the spirit of Christmas all year long!"
+    if child.get('favorite'):
+        closing = f"Merry Christmas! By the way, {child.get('favorite')} is my favorite too!"
+    else:
+        closing = "Merry Christmas!"
     signature = "Checked twice, \n Santa Claus"
 
     # save FPDF() class into a variable pdf

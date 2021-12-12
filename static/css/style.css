@@ -117,6 +117,23 @@ section.letter {
   animation-timing-function: forwards;
 }
 
+/* flash messages */
+.flashes {
+  margin: auto;
+}
+
+.flashes h4 {
+  margin: auto;
+  text-align: center;
+  line-height: 2;
+  color: #0e6d4d;
+}
+
+/* profile */
+.profile {
+  background-color: #37bfc1
+}
+
 @keyframes clock {
   0% {
     transform: translate(-100vw, 0);

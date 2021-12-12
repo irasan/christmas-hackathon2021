@@ -302,7 +302,7 @@ section.letter {
 /* x-small screen size */
 @media screen and (max-width: 576px) {
   .clock {
-    font-size: 20px;
+    font-size: 1.2rem;
     padding-top: 15px;
   }
 }
@@ -310,7 +310,7 @@ section.letter {
 /* small screen size */
 @media screen and (min-width: 576px) and (max-width: 768px) {
   .clock {
-    font-size: 24px;
+    font-size: 1.6rem;
     padding-top: 10px;
   }
 }

@@ -1,10 +1,10 @@
 # **National Elf Services**
 
-[View the live site here]()
+[View the live site here](http://national-elf-service.herokuapp.com/)
 
-This website was built to fulfill the requirements of the Code Institute Christmas Hackathon. It has the goal of...
+This website was designed to bring the holiday magic to children of, but not limited to, 1 to 12 years of age. It features letter templates to Santa, which can be personalized to the wishes of both the parent and child. The letter gets sent to Santa Clause, and a printable response letter is sent back to the child directly from Santa!
 
-![Final project image home page]()
+![Final project image home page](docs/amiresponsive.png)
 
 ## **Contents**
 
@@ -71,9 +71,10 @@ In addition to the First Time Visitor Goals, a Returning Visitor should be able 
 * Log in.
 * Be confident that their password is be stored securely.
 * Navigate intuitively, with no need to use the browser's back button.
-* Update and delete their profile/account.
-* Send a letter to Santa.
-* Receive a letter from Santa.
+* Delete their account.
+* Send a letter to Santa using a letter template.
+* Choose a letter template based on the age of their child.
+* Receive a taylored reponse letter from Santa and download it in pdf format.
 * See a 12 day update-countdown for how Santa is preparing for Christmas.
 * Log out.
 
@@ -85,19 +86,18 @@ In addition to the First Time Visitor Goals, a Returning Visitor should be able 
 
 ### Colour Scheme
 
-* The website uses a colours typically related to Christmas.
+* The website uses colours typically related to Christmas.
 ![alt text](static/images/palette.png "Colour palette")
-
-[Colour Palette - Coolers.co]()
-![Colours used in this site]()
 
 ### Typography
 
-* The website uses a font from [Google Fonts]() called ____________ . This font gives a feeling of joy and was chosen for its Christmas Spirit. It has a fall back of _________.
+* The countdown to Christmas Clock uses a font from [Google Fonts](https://fonts.google.com/?query=Mountains+of+Christmas) called _Mountains of Christmas_. This font creates a playful and exciting feeling for the build up to Christmas. It has a fall back of _cursive_.
+* The letters to Santa use a font called _Fuzzy Bubbles_. It has the look and feel of a child's handwriting, and gives the letter's a more 'handwritten' feel. It too has a fall back of _cursive_.
+* The navbar links and logo uses a font called _Luckiest Guy_ creating a feeling of friendliness and Christmas Spirit.
+* All chosen fonts have a fall back of _cursive_ and were taken from [Google Fonts](https://fonts.google.com/).
 
 ### Imagery
 
-* The icons in the site were taken from [font-awesome](https://fontawesome.com/) and used for their obvious meaning within the forms.
 
 ### Wireframes
 
@@ -126,11 +126,20 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 ---
 
 * Letter to Santa templates determined by the age of the child.
+    * ![Log Out On Navbar]()
+
+---
+
 * A letter back from Santa.
-* A 12 day update-countdown for how Santa is preparing for Christmas.
+    * ![Log Out On Navbar]()
+
+---
+
+* A 12-day update-countdown for how Santa is preparing for Christmas.
 
 ---
 #### Process Flowchart
+
 ![alt text](static/images/flowchart.png "Process flowchart")
 
 ---
@@ -215,8 +224,8 @@ MongoDB was used to store data for this site in a database. The data has been se
 
 * [Font Awesome](https://fontawesome.com/) was used on all pages to add the icons.
 * [Coolers.co](https://coolors.co) was used to generate the colour palette in the readme.
-* [Google Fonts](https://fonts.google.com/) was used to import the ___________ font used within the site.
-* [Favicon.io](https://favicon.io/favicon-generator/)
+* [Google Fonts](https://fonts.google.com/) was used to import the 3 fonts used within the site.
+* [Favicon.io](https://favicon.io/emoji-favicons/snowman) was used to generate the snowman favicon for the site.
 
 ### Database Design Technologies
 
@@ -235,7 +244,6 @@ MongoDB was used to store data for this site in a database. The data has been se
 * [RandomKeygen](https://randomkeygen.com/) was used to generate a strong `SECRET_KEY`.
 * [pip](https://pip.pypa.io/en/stable/) was used to install the required dependancies for this site.
 * [dnspython](https://pypi.org/project/dnspython/) was used to provide access to DNS.
-* [Regular Expressions 101](https://regex101.com/) was used to set password parameters for the registration form.
 
 ### Testing
 
@@ -362,6 +370,38 @@ All testing and project barriers and solutions has been documented here - [TESTI
 
 * [Pixabay](https://pixabay.com/illustrations/christmas-motif-christmas-card-3774320/)
 * [Pixabay](https://pixabay.com/illustrations/christmas-motif-christmas-card-3794751/)
+
+#### Countdown Backgrounds
+
+* [Pixabay](https://pixabay.com/vectors/moon-silhouettes-santa-claus-31665/)
+* [Pixabay](https://pixabay.com/illustrations/christmas-tree-lights-stars-glowing-2928142/)
+* [Pixabay](https://pixabay.com/illustrations/red-christmas-tree-christmas-2892235/)
+* [Pixabay](https://pixabay.com/illustrations/christmas-gifts-snow-surprise-3030279/)
+* [Pixabay](https://pixabay.com/photos/christmas-christmas-tree-presents-1869902/)
+* [Pixabay](https://pixabay.com/illustrations/background-abstract-christmas-shiny-3017167/)
+* [Pixabay](https://pixabay.com/illustrations/new-year-christmas-decoration-1911483/)
+* [Pixabay](https://pixabay.com/vectors/snow-winter-landscape-tree-6790304/)
+* [Pixabay](https://pixabay.com/vectors/christmas-ornaments-border-xmas-5791984/)
+* [Pixabay](https://pixabay.com/photos/christmas-snow-winter-3864540/)
+* [Pixabay](https://pixabay.com/vectors/christmas-decoration-ornaments-5740350/)
+* [Pixabay](https://pixabay.com/photos/santa-claus-christmas-6741515/)
+* [Pixabay](https://pixabay.com/illustrations/snowflake-background-snow-blue-3639667/)
+
+#### Countdown Numbers
+
+* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 1
+* [Pixabay](https://pixabay.com/illustrations/two-pay-stars-christmas-festive-2761958/) Number 2
+* [Pixabay](https://pixabay.com/illustrations/three-pay-stars-christmas-festive-2760919/) Number 3
+* [Pixabay](https://pixabay.com/illustrations/four-digit-pay-stars-christmas-2760921/) Number 4
+* [Pixabay](https://pixabay.com/illustrations/five-pay-stars-christmas-festive-2760922/) Number 5
+* [Pixabay](https://pixabay.com/illustrations/six-pay-stars-christmas-festive-2760923/) Number 6
+* [Pixabay](https://pixabay.com/illustrations/seven-pay-stars-christmas-festive-2760924/) Number 7
+* [Pixabay](https://pixabay.com/illustrations/eight-pay-stars-christmas-festive-2760925/) Number 8
+* [Pixabay](https://pixabay.com/illustrations/nine-pay-stars-christmas-festive-2760926/) Number 9
+* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 10
+* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 11
+* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 12
+
 
 ### Acknowledgements
 

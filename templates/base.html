@@ -5,6 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" sizes="192x192" href="{{ url_for('static', filename='images/favicon.png') }}">
     <title>{{ title }} - National Elf Services</title>
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/css/snow.css" rel="stylesheet">
@@ -12,10 +14,11 @@
 </head>
 <body>
 <header>
-{% if 'username' in session %}
+    {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'] }}</div>
     {% else %}
-        <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a href="{{ url_for('login') }}">Login</a>
+        <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
+                href="{{ url_for('login') }}">Login</a>
             or <a href="{{ url_for('register') }}">Register</a>.
         </div>
     {% endif %}
@@ -34,14 +37,19 @@
                     </li>
                     {% if 'username' not in session %}
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_login %}{% endblock %}" href="{{ url_for('login') }}">Login</a>
+                            <a class="nav-link {% block nav_login %}{% endblock %}"
+                               href="{{ url_for('login') }}">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% block nav_register %}{% endblock %}" href="{{ url_for('register') }}">Register</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_profile %}{% endblock %}" href="{{ url_for('profile', username=session['username']) }}">Profile</a>
+                            <a class="nav-link {% block nav_countdown %}{% endblock %}" href="{{ url_for('countdown') }}">Countdown</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% block nav_profile %}{% endblock %}"
+                               href="{{ url_for('profile', username=session['username']) }}">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% block nav_logout %}{% endblock %}" href="{{ url_for('logout') }}">Logout</a>
@@ -52,21 +60,38 @@
         </div>
     </nav>
     <div class="clock">
-    <span id="flare"> Days left to Christmas: </span><span id="clock-inner" class="clock-gold"></span>
+        <span id="flare"> Days left to Christmas: </span><span id="clock-inner" class="clock-gold"></span>
     </div>
 </header>
 <main>
-    <!-- <div class="container-fluid"> -->
-        {% block content %}{% endblock %}
-    <!-- </div> -->
+    {% block content %}{% endblock %}
 </main>
-<footer class="py-5 bg-white">
-    <div class="container">
-        <p class="m-0 text-center castle-green">Copyright &copy; National Elf Services 2021</p>
+<footer class="py-5">
+    <div class="row m-0">
+        <div class="col-sm-6 col-md-2 text-center offset-1">
+            <a href="https://github.com/wierdlygoodcoder" class="tap-target" rel="noopener" target="_blank">Ashley Rolfe</a><br>
+        </div>
+        <div class="col-sm-6 col-md-2 text-center">
+            <a href="https://github.com/CarlaBuongiorno" class="tap-target" rel="noopener" target="_blank">Carla
+                Buongiorno</a><br>
+        </div>
+        <div class="col-sm-6 col-md-2 text-center">
+            <a href="https://github.com/irasan" class="tap-target" rel="noopener" target="_blank">Iryna Sanzhara</a><br>
+        </div>
+        <div class="col-sm-6 col-md-2 text-center">
+            <a href="https://github.com/Aramantos" class="tap-target" rel="noopener" target="_blank">John Doyle</a><br>
+        </div>
+        <div class="col-sm-6 col-md-2 text-center">
+            <a href="https://github.com/5pence" class="tap-target" rel="noopener" target="_blank">Spencer Barribal</a>
+        </div>
+        <div class="container mt-2">
+            <p class="m-0 text-center castle-green">Copyright &copy; National Elf Services 2021</p>
+        </div>
     </div>
 </footer>
 <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../static/vendor/jquery/jquery.min.js"></script>
 <script src="../static/js/clock.js"></script>
+<script src="../static/js/countdown.js"></script>
 </body>
 </html>

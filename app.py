@@ -4,6 +4,8 @@ from flask_pymongo import PyMongo
 from config import Config
 from fpdf import FPDF
 from bson.objectid import ObjectId
+from os import listdir
+from os.path import isfile, join
 import bcrypt
 import os
 import time
@@ -31,9 +33,8 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """Login handler"""
-    if session.get('logged_in'):
-        if session['logged_in'] is True:
-            return redirect(url_for('profile', username=session['username'], title="Sign In"))
+    if "username" in session:
+        return redirect(url_for('profile', username=session['username'], title="Sign In"))
 
     form = LoginForm()
 
@@ -58,14 +59,9 @@ def login():
 
 @app.route("/profile/<username>")
 def profile(username):
-    if session.get('logged_in'):
-        # check if logged in user is the owner of the profile
-        if session['logged_in'] is True:
-            children = list(mongo.db.children.find({"parent": username}))
-
-            return render_template(
-                "profile.html", children=children)
-        return redirect(url_for("index"))
+    if "username" in session:
+        children = list(mongo.db.children.find({"parent": username}))
+        return render_template("profile.html", children=children)
 
     return redirect(url_for("login"))
 
@@ -76,48 +72,137 @@ def edit_child(child_id):
     form = EditChildForm()
     if "username" in session:
         if request.method == "POST":
+            nice_thing = request.form.get("nice_thing")
+            favorite = request.form.get("favorite")
+            homework = request.form.get("homework")
+            be_kind = request.form.get("be_kind")
+            make_bed = request.form.get("make_bed")
+            clean_room = request.form.get("clean_room")
+            bedtime = request.form.get("bedtime")
+
             mongo.db.children.find_one_and_update({"_id": ObjectId(child_id)}, 
-            { "$set": { "favorite": request.form.get("favorite"), 
-                    "nice_thing": request.form.get("nice_thing"),
-                    "wanted_behavior": [("do homework", request.form.get("homework")), 
-                                    ("be kind", request.form.get("be_kind")),
-                                    ("make bed", request.form.get("make_bed")),
-                                    ("clean room", request.form.get("clean_room")),
-                                    ("go to bed in time", request.form.get("bedtime"))]}})
+            { "$set": { "favorite": favorite, 
+                    "nice_thing": nice_thing,
+                    "wanted_behavior": [("do homework, ", homework), 
+                                    ("be kind, ", be_kind),
+                                    ("make bed, ", make_bed),
+                                    ("clean room, ", clean_room),
+                                    ("go to bed in time, ", bedtime)]}})
             return redirect(url_for("profile", username=session["username"]))
         return render_template("edit_child.html", title="Edit Child", child=child, form=form)
     return redirect(url_for("login"))
 
 
+@app.route("/download_response/<child_id>", methods=["GET"])
+def download_response(child_id):
+    child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
+    line_one = f"Dear {child.get('name')}!".title()
+    line_two = "Can you believe that Christmas is so close? The North pole is a busy place this time of the year."
+    nice_thing = f"I checked my list and I was delighted to see your name on the nice list. I was very impressed how you {child.get('nice_thing')}."
+    mylist = []
+    for n in child.get('wanted_behavior'):
+        if n[1] == 'y':
+            mylist.append(n[0])
+    wanted_list = ''.join(mylist);
+    recommendation = f"Now {wanted_list} and remember the spirit of Christmas all year long!"
+    closing = f"Merry Christmas! By the way, {child.get('favorite')} is my favorite too!"
+    signature = "Checked twice, \n Santa Claus"
+
+    # save FPDF() class into a variable pdf
+    pdf = FPDF(orientation='P', unit='mm', format='A4')
+    # Add a page
+    pdf.add_page()
+    pdf.image("static/images/snowman.jpg", x=0, y=0, w=210, h=297, type='', link='')
+    
+    # set style and size of font
+    # that you want in the pdf
+    pdf.set_font("Arial", size=18)
+
+    # create a cell
+    pdf.cell(100, 10, txt=line_one,
+             ln=1, align='C')
+    pdf.ln()
+    # add another cell
+    pdf.multi_cell(200, 10, txt=line_two,
+             align='L')
+    pdf.ln(10)
+    pdf.multi_cell(200, 10, txt=nice_thing,
+             align='L')
+    pdf.multi_cell(200, 10, txt=recommendation,
+             align='L')
+    pdf.ln(10)
+    pdf.cell(200, 10, txt=closing,
+             ln=8, align='L')
+    pdf.multi_cell(200, 10, txt=signature,
+             align='R')
+    # get unique filename
+    filename = f"static/pdfs/responseto{child_id}{int(time.time())}.pdf"
+    # save the pdf with name .pdf
+    pdf.output(filename)
+    return redirect(f"../{filename}")
+
+
 @app.route("/download_letter/<child_id>", methods=["GET"])
 def download_letter(child_id):
+    clean_up_pdf_folder(child_id)
     child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
-    line_one = f"Hello, my name is {child.get('name')} and I am {child.get('age')} years old."
-    line_two = "I am really very excited for Christmas this year!"
+    line_three = ""
     behaviour = ""
-    if child.get('behaviour', 'Nice') == 'Nice':
-        behaviour = "This year I've been good and made lots of good choices."
-    elif child.get('behaviour') == 'Naughty':
-        behaviour = "This year I know I have made a few bad choices. Even so, "
+    behaviour1 = ""
+    behaviour2 = ""
+    behaviour3 = ""
+    behaviour4 = ""
+    say_hello = ""
+    ps = ""
+    line_one = f"Hello, my name is {child.get('name')} and I am {child.get('age')} years old."
+    if int(child.get('age')) < 7:
+        line_two = "I am really very excited for Christmas this year!"
+        if child.get('behaviour', 'Nice') == 'Nice':
+            behaviour = "This year I've been good and made lots of good choices."
+        elif child.get('behaviour') == 'Naughty':
+            behaviour = "This year I know I have made a few bad choices. Even so, "
+        else:
+            behaviour = "This year I have mostly been good on the whole and"
+        gift1 = f"I was hoping you could get me a {child.get('gift1')} and"
+        gift2 = f"a {child.get('gift2')}, that would make me so happy!"
+        say_hello = f"Please say hi to {child.get('say_hi')} for me."
+        last_sentence = ""
+        if child.get('milk') == 'y' and child.get('cookies') == 'y':
+            last_sentence = "I'm going to leave some milk and cookies for you."
+        elif child.get('milk') == 'y':
+            last_sentence = "I'm going to leave some milk for when you get here."
+        elif child.get('cookies') == 'y':
+            last_sentence = "I'm going to leave some cookies for when you get here."
+        closing = f"Love, {child.get('name')}"
     else:
-        behaviour = "This year I have mostly been good on the whole and"
-    gift1 = f"I was hoping you could get me a {child.get('gift1')} and"
-    gift2 = f"a {child.get('gift2')}, that would make me so happy!"
-    say_hello = f"Please say hi to {child.get('say_hi')} for me."
-    last_sentence = ""
-    if child.get('milk') == 'y' and child.get('cookies') == 'y':
-        last_sentence = f"I'm going to leave some milk and cookies for you."
-    elif child.get('milk') == 'y':
-        last_sentence = f"I'm going to leave some milk for when you get here."
-    elif child.get('cookies') == 'y':
-        last_sentence = f"I'm going to leave some cookies for when you get here."
-    closing = f"Love, {child.get('name')}"
+        line_two = f"I live in {child.get('home')}, which is quite far from your place in the North Pole"
+        line_three = "Christmas is my favourite day of the year, and I am looking forward to your visit in our house."
+        behaviour = "You see, I tried my best to be nice this year. The nice things I did are:"
+        
+        if child.get('brush_teeth') == 'y':
+            behaviour1 = "I brushed my teeth everyday"
+        if child.get('clean_room') == 'y':
+            behaviour2 = "I cleaned my room"
+        if child.get('make_bed') == 'y':
+            behaviour3 = "I made my bed"
+        if child.get('homework') == 'y':
+            behaviour4 = "Finished all my homework"
+        gift1 = f"This Christmas my wishes are: {child.get('gift1')}, {child.get('gift2')} and {child.get('gift3')}. "
+        gift2 = f"I also wish for a {child.get('friend')} for my friend."
+        last_sentence = "I love snacking on chocolate pretzels these days, and I'll be leaving a plate of that by the tree."\
+            "I hope that will give you energy as you drop off gifts to the other nice kids out there"
+        ps = f"P.S. Say 'hi' to {child.get('say_hi1')} and {child.get('say_hi1')} for me!"
+        closing = "Merry Christmas, Santa!"
+    
     # save FPDF() class into a
     # variable pdf
     pdf = FPDF(orientation='P', unit='mm', format='A4')
     # Add a page
     pdf.add_page()
-    pdf.image("static/images/snowman.jpg", x=0, y=0, w=210, h=297, type='', link='')
+    if int(child.get('age')) < 7:
+        pdf.image("static/images/snowman.jpg", x=0, y=0, w=210, h=297, type='', link='')
+    else:
+        pdf.image("static/images/balls.jpg", x=0, y=0, w=210, h=297, type='', link='')
     # set style and size of font
     # that you want in the pdf
     pdf.set_font("Arial", size=18)
@@ -132,22 +217,40 @@ def download_letter(child_id):
 
     pdf.cell(200, 10, txt=line_two,
              ln=3, align='L')
+    if line_three:
+        pdf.multi_cell(200, 10, txt=line_three,
+             align='L')
     pdf.ln(10)
-    pdf.cell(200, 10, txt=behaviour,
-             ln=4, align='L')
+    pdf.multi_cell(200, 10, txt=behaviour,
+             align='L')
+    if behaviour1:
+        pdf.cell(200, 10, txt=behaviour1,
+             ln=6, align='L')
+    if behaviour2:
+        pdf.cell(200, 10, txt=behaviour2,
+             ln=7, align='L')
+    if behaviour3:
+        pdf.cell(200, 10, txt=behaviour3,
+             ln=6, align='R')
+    if behaviour4:
+        pdf.cell(200, 10, txt=behaviour4,
+             ln=7, align='R')       
     pdf.cell(200, 10, txt=gift1,
-             ln=5, align='L')
+             ln=8, align='L')
     pdf.cell(200, 10, txt=gift2,
              ln=6, align='L')
     pdf.ln(10)
-    pdf.cell(200, 10, txt=say_hello,
-             ln=6, align='L')
-    if last_sentence:
-        pdf.cell(200, 10, txt=last_sentence,
-                 ln=6, align='L')
+    if say_hello:
+        pdf.cell(200, 10, txt=say_hello,
+                ln=9, align='L')
+    pdf.multi_cell(200, 10, txt=last_sentence,
+             align='L')
     pdf.ln(20)
     pdf.cell(200, 10, txt=closing,
              ln=6, align='C')
+    if ps:
+        pdf.cell(200, 10, txt=ps,
+                 ln=10, align='L')
     # get unique filename
     filename = f"static/pdfs/{child_id}{int(time.time())}.pdf"
     # save the pdf with name .pdf
@@ -157,11 +260,10 @@ def download_letter(child_id):
 
 @app.route("/delete_account/<username>")
 def delete_account(username):
-    if "user" in session:
-        mongo.db.users.delete_one({"username": session["username"]})
-        mongo.db.children.delete_many({"parent": session["username"]})
-        flash("Your Account Was Successfully Deleted")
-        return redirect(url_for("index"))
+    if "username" in session:
+        mongo.db.users.delete_one({"name": username})
+        mongo.db.children.delete_many({"parent": username})
+        return redirect(url_for("logout"))
 
     return redirect(url_for("login"))
 
@@ -223,6 +325,14 @@ def get_big_kid_letter():
     return render_template("index.html")
 
 
+@app.route("/countdown")
+def countdown():
+    if session.get('logged_in'):
+
+        return render_template(
+            "countdown.html")
+
+
 @app.route('/logout')
 def logout():
     """Clears session and redirects to home"""
@@ -253,6 +363,16 @@ def register():
         flash('Sorry, that username is already taken - use another')
         return redirect(url_for('register'))
     return render_template('register.html', title='Register', form=form)
+
+
+def clean_up_pdf_folder(child_id):
+    """ This function removes any stored pdf for child in order to ensure that their is only
+    one per child so the filesystem doesn't get to big"""
+    only_pdf_files = [f for f in listdir('static/pdfs/') if isfile(join('static/pdfs/', f))]
+    for pdf in only_pdf_files:
+        if pdf[:24] == child_id:
+            os.remove(f'static/pdfs/{pdf}')
+    return
 
 
 if __name__ == '__main__':

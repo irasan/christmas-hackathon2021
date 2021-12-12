@@ -22,8 +22,11 @@
 }
 
 .container-fluid{
-    /* background-color: #37bfc1; */
     padding: 20px;
+}
+
+footer {
+    margin-top: 20px;
 }
 
 body {
@@ -254,6 +257,45 @@ section.letter {
     100% {
       transform: scale(1);
     }
+
+/* Countdown */
+
+#background {
+    background: url('../images/moon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70vh;
+    width: 90%;
+    position: relative;
+}
+
+.number {
+    /* background: url('../images/three.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 180px;
+    height: 70%;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#update {
+    color: gold;
+    line-height: 2;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    width: 350px;
+    position: absolute;
+    margin-top: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
 }
 
 /* Media Queries */

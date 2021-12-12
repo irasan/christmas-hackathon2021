@@ -20,6 +20,7 @@
         <strong style="margin-top: 20px;">Special thing your child did/said:</strong><br>
         {{ child.nice_thing }}<br>
         <a href="{{ url_for('edit_child', child_id=child._id) }}">Edit</a>
+        <a href="{{ url_for('download_response', child_id=child._id) }}">Download letter from Santa</a>
 
         {% else %}
           We will send your child a letter from Santa. If you'd like it to be personalised, please answer the following questions:
@@ -54,9 +55,9 @@
         </div>
       </div>
     </div>
-           
+
     <a href="{{ url_for('delete_account', username=session['username']) }}" style="color:red; margin-top:30px; float:right; border:1px solid;"
-    onclick="return confirm('Are you sure you want to delete this item?');">Delete my account</a>   
+    onclick="return confirm('Are you sure you want to delete this item?');">Delete my account</a>
 
 </div>
 {% endblock %}

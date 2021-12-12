@@ -304,20 +304,28 @@ section.letter {
     left: 28%;
     top: 60%;
 }
-
+#xmas-box,
 #update {
   color: gold;
   line-height: 2;
   font-family: "Mountains of Christmas", cursive;
-  font-size: 1.5rem;
   letter-spacing: 5px;
   width: 50%;
   position: absolute;
-  margin-top: 50px;
-  left: 60%;
   top: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
+}
+
+#update {
+    font-size: 1.5rem;
+    left: 60%;
+    margin-top: 50px;
+}
+
+#xmas-box {
+    font-size: 4rem;
+    left: 50%;
 }
 
 /* Media Queries */

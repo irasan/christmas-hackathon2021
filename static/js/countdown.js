@@ -41,10 +41,11 @@ var distance = countDownDate - now;
 var days = Math.floor(distance / (1000 * 60 * 60 * 24) + 1);
 
 // Get the ids for displaying the number images and updates
-let update = document.getElementById("update");
 let digit1 = document.getElementById("digit-1");
 let digit2 = document.getElementById("digit-2");
 let number = document.getElementById("number");
+let update = document.getElementById("update");
+let xmasBox = document.getElementById("xmas-box");
 
 // Display the number images 1 - 12 and updates corresponding to the days left till Christmas
 switch (days) {
@@ -100,7 +101,7 @@ switch (days) {
     update.innerHTML = one;
     break;
   case 0:
-    update.innerHTML = merryXmas;
+    xmasBox.innerHTML = merryXmas;
     break;
   default:
     number.innerHTML = `<img class="hourglass" src="/static/images/hourglass.png">`;

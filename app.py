@@ -328,12 +328,10 @@ def get_big_kid_letter():
     return render_template("index.html")
 
 
-@app.route("/countdown")
+@app.route('/countdown')
 def countdown():
-    if session.get('logged_in'):
 
-        return render_template(
-            "countdown.html")
+    return render_template('countdown.html')
 
 
 @app.route('/logout')

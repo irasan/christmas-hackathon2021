@@ -60,7 +60,9 @@ def login():
 
 @app.route("/profile/<username>")
 def profile(username):
+    """ main profile page"""
     if "username" in session:
+        # get all user's children in a list
         children = list(mongo.db.children.find({"parent": username}))
         return render_template("profile.html", children=children)
 
@@ -82,9 +84,9 @@ def edit_child(child_id):
             bedtime = request.form.get("bedtime")
 
             mongo.db.children.find_one_and_update({"_id": ObjectId(child_id)}, 
-            { "$set": { "favorite": favorite, 
-                    "nice_thing": nice_thing,
-                    "wanted_behavior": [("do homework, ", homework), 
+            {"$set": {"favorite": favorite,
+                      "nice_thing": nice_thing,
+                      "wanted_behavior": [("do homework, ", homework),
                                     ("be kind, ", be_kind),
                                     ("make bed, ", make_bed),
                                     ("clean room, ", clean_room),
@@ -96,6 +98,7 @@ def edit_child(child_id):
 
 @app.route("/download_response/<child_id>", methods=["GET"])
 def download_response(child_id):
+    """ calls pdf clean up function and then dynamically builds a pdf and saves to pdf folder"""
     clean_up_pdf_folder(child_id)
     child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
     line_one = f"Dear {child.get('name')}!".title()
@@ -123,9 +126,6 @@ def download_response(child_id):
     
     pdf.image("static/images/tempred.png", x=0, y=0, w=210, h=297, type='', link='')
     pdf.set_margins(30, 30, 30)
-    
-    # set style and size of font
-    # that you want in the pdf
     pdf.set_font("Arial", size=18)
 
     # create a cell
@@ -213,15 +213,12 @@ def download_letter(child_id):
         pdf.image("static/images/snowman.jpg", x=0, y=0, w=210, h=297, type='', link='')
     else:
         pdf.image("static/images/balls.jpg", x=0, y=0, w=210, h=297, type='', link='')
-    # set style and size of font
-    # that you want in the pdf
     pdf.set_font("Arial", size=18)
 
     # create a cell
     pdf.cell(100, 10, txt="Dear Santa,",
              ln=1, align='L')
     pdf.ln()
-    # add another cell
     pdf.cell(200, 10, txt=line_one,
              ln=2, align='L')
 
@@ -337,8 +334,8 @@ def get_big_kid_letter():
 
 @app.route("/countdown")
 def countdown():
+    """ For countdown page, countdown logic in countdown.js """
     if session.get('logged_in'):
-
         return render_template(
             "countdown.html")
 
@@ -378,9 +375,12 @@ def register():
 def clean_up_pdf_folder(child_id):
     """ This function removes any stored pdf for child in order to ensure that their is only
     one per child so the filesystem doesn't get to big"""
+    # gets all filesnames in list of pdf folder
     only_pdf_files = [f for f in listdir('static/pdfs/') if isfile(join('static/pdfs/', f))]
     for pdf in only_pdf_files:
+        # splice 24 characters from filename and see if they match child's id
         if pdf[:24] == child_id or pdf[10:34] == child_id:
+            # if so delete file
             os.remove(f'static/pdfs/{pdf}')
     return
 

@@ -45,7 +45,7 @@
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_countdown %}{% endblock %}" href="#">Countdown</a>
+                            <a class="nav-link {% block nav_countdown %}{% endblock %}" href="{{ url_for('countdown') }}">Countdown</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% block nav_profile %}{% endblock %}"

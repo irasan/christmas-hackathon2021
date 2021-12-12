@@ -24,9 +24,9 @@ let two =
   "Santa checks the oats and water level of the Reindeer, before the Big Delivery.";
 let one =
   "The Elves pack up the Sleigh, and with a “HO! HO! HO!”, Santa is on his way to deliver the gifts.";
-let zero = "Merry Christmas!";
+let merryXmas = "Merry Christmas!";
 let checkBack =
-  "Check back here 12 days before Christmas for updates on how Santa is preparing for Christmas";
+  "Check back here 12 days before Christmas for updates on how Santa is preparing for Christmas...";
 
 // Set the date we're counting down to
 var countDownDate = new Date("Dec 25, 2021");
@@ -36,10 +36,9 @@ var now = new Date();
 
 // Find the distance between now and the count down date
 var distance = countDownDate - now;
-console.log("distance", distance);
 
 // Time calculations for days
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var days = Math.floor(distance / (1000 * 60 * 60 * 24) + 1);
 
 // Get the ids for displaying the number images and updates
 let update = document.getElementById("update");
@@ -50,18 +49,18 @@ let number = document.getElementById("number");
 // Display the number images 1 - 12 and updates corresponding to the days left till Christmas
 switch (days) {
   case 12:
-    digit1.innerHTML = `<img class="number" src="/static/images/one.png">`;
-    digit2.innerHTML = `<img class="number" src="/static/images/two.png">`;
+    digit1.innerHTML = `<img class="digit-1" src="/static/images/one.png">`;
+    digit2.innerHTML = `<img class="digit-2" src="/static/images/two.png">`;
     update.innerHTML = twelve;
     break;
   case 11:
-    digit1.innerHTML = `<img class="number" src="/static/images/one.png">`;
-    digit2.innerHTML = `<img class="number" src="/static/images/one.png">`;
+    digit1.innerHTML = `<img class="digit-1" src="/static/images/one.png">`;
+    digit2.innerHTML = `<img class="digit-2" src="/static/images/one.png">`;
     update.innerHTML = eleven;
     break;
   case 10:
-    digit1.innerHTML = `<img class="number" src="/static/images/one.png">`;
-    digit2.innerHTML = `<img class="number" src="/static/images/zero.png">`;
+    digit1.innerHTML = `<img class="digit-1" src="/static/images/one.png">`;
+    digit2.innerHTML = `<img class="digit-2" src="/static/images/zero.png">`;
     update.innerHTML = ten;
     break;
   case 9:
@@ -100,12 +99,16 @@ switch (days) {
     number.innerHTML = `<img class="number" src="/static/images/one.png">`;
     update.innerHTML = one;
     break;
+  case 0:
+    update.innerHTML = merryXmas;
+    break;
   default:
+    number.innerHTML = `<img class="hourglass" src="/static/images/hourglass.png">`;
     update.innerHTML = checkBack;
     break;
 }
 
 // If the count down is finished, write Happy Christmas
-if (distance < 1) {
-  update.innerHTML = zero;
-}
+// if (distance <= 0) {
+//   update.innerHTML = merryXmas;
+// }

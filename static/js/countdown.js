@@ -4,24 +4,24 @@
 let twelve =
   "The sleigh gets polished and cleaned, the runway shovelled from snow. Its almost Christmas - not much time to go!!";
 let eleven =
-  "Mr and Mrs Clause tour the factory and give the elves a hearty applause.";
+  "Mr and Mrs Clause tour the factory and give the Elves a hearty applause.";
 let ten =
-  "The reindeer practice flying formations under brightly lit Christmas decorations.";
+  "The Reindeer practice flying formations under brightly lit Christmas decorations.";
 let nine =
   "The Elves work hard in 12 hour shifts, testing and wrapping all Christmas gifts.";
 let eight =
-  "The Elves work and sing songs with Christmas cheer. Santa holds an important planning meeting with the Reindeer.";
+  "The Elves work and sing songs with Christmas cheer. Santa holds an important meeting with the Reindeer.";
 let seven =
   "Santa checks the workshop and downloads a Christmas playlist for the big trip.";
 let six =
   "Santa, the Elves, and Reindeer have a feast to celebrate their hard work, Candy Cane and Eggnog for everyone!";
 let five =
-  "Mrs. Clause locks away all the milk and cookies so Santa can make space for your milk and cookies.";
+  "Mrs Clause locks away all the milk and cookies so Santa can make space for your milk and cookies.";
 let four =
   "Santa checks the Naughty or Nice List and plans his route with Google Maps.";
 let three = "The Elves wrap up the last gifts and put it in Santa’s Bag.";
 let two =
-  "Santa checks the oats and water level of the Reindeer, before the Big Delivery.";
+  "Santa checks the oats and water level of the Reindeer before the Big Delivery.";
 let one =
   "The Elves pack up the Sleigh, and with a “HO! HO! HO!”, Santa is on his way to deliver the gifts.";
 let merryXmas = "Merry Christmas!";
@@ -108,8 +108,3 @@ switch (days) {
     update.innerHTML = checkBack;
     break;
 }
-
-// If the count down is finished, write Happy Christmas
-// if (distance <= 0) {
-//   update.innerHTML = merryXmas;
-// }

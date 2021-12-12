@@ -29,7 +29,7 @@ let checkBack =
   "Check back here 12 days before Christmas for updates on how Santa is preparing for Christmas";
 
 // Set the date we're counting down to
-var countDownDate = new Date("Dec 12, 2021");
+var countDownDate = new Date("Dec 25, 2021");
 
 // Get today's date
 var now = new Date();

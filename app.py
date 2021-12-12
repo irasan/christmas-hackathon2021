@@ -31,9 +31,8 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """Login handler"""
-    if session.get('logged_in'):
-        if session['logged_in'] is True:
-            return redirect(url_for('profile', username=session['username'], title="Sign In"))
+    if "username" in session:
+        return redirect(url_for('profile', username=session['username'], title="Sign In"))
 
     form = LoginForm()
 
@@ -58,14 +57,9 @@ def login():
 
 @app.route("/profile/<username>")
 def profile(username):
-    if session.get('logged_in'):
-        # check if logged in user is the owner of the profile
-        if session['logged_in'] is True:
-            children = list(mongo.db.children.find({"parent": username}))
-
-            return render_template(
-                "profile.html", children=children)
-        return redirect(url_for("index"))
+    if "username" in session:
+        children = list(mongo.db.children.find({"parent": username}))
+        return render_template("profile.html", children=children)
 
     return redirect(url_for("login"))
 
@@ -157,11 +151,10 @@ def download_letter(child_id):
 
 @app.route("/delete_account/<username>")
 def delete_account(username):
-    if "user" in session:
-        mongo.db.users.delete_one({"username": session["username"]})
-        mongo.db.children.delete_many({"parent": session["username"]})
-        flash("Your Account Was Successfully Deleted")
-        return redirect(url_for("index"))
+    if "username" in session:
+        mongo.db.users.delete_one({"name": username})
+        mongo.db.children.delete_many({"parent": username})
+        return redirect(url_for("logout"))
 
     return redirect(url_for("login"))
 

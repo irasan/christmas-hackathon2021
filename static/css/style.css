@@ -1,330 +1,379 @@
-@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Are+You+Serious&family=Butterfly+Kids&family=Fuzzy+Bubbles:wght@400;700&family=Lato:wght@100;300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Are+You+Serious&family=Butterfly+Kids&family=Fuzzy+Bubbles:wght@400;700&family=Lato:wght@100;300;400;700;900&display=swap");
 .red {
-    color: #ef4348;
+  color: #ef4348;
 }
 
 .blue {
-    color: #37bfc1;
+  color: #37bfc1;
 }
 
 .white {
-    color: #fcfcfb;
+  color: #fcfcfb;
 }
 
 .bottle-green {
-    color: #0e6d4d;
+  color: #0e6d4d;
 }
 
 .castle-green {
-    color: #145840;
+  color: #145840;
 }
 
-.container-fluid{
-    padding: 20px;
+.container-fluid {
+  padding: 20px;
 }
 
 footer {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 body {
-    width: 100%;
+  width: 100%;
 }
 
-h1{
-    width: 50%;
-    margin: 5vh auto;
-    padding: 20px;
-    text-align: center;
+h1 {
+  width: 50%;
+  margin: 5vh auto;
+  padding: 20px;
+  text-align: center;
 }
 
 form {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 a {
-    color: #0e6d4d;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
+  color: #0e6d4d;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
 }
 
 .trans-panel {
-    background-color: rgba(55, 191, 193, .6);
-    color: #fcfcfb;
+  background-color: rgba(55, 191, 193, 0.6);
+  color: #fcfcfb;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #145840;
-    border-color: #145840;
+  color: #fff;
+  background-color: #145840;
+  border-color: #145840;
 }
 
 .btn-primary:hover {
-    color: #fcfcfb;
-    background-color: #0e6d4d;
-    border-color: #0e6d4d;
+  color: #fcfcfb;
+  background-color: #0e6d4d;
+  border-color: #0e6d4d;
 }
 
 .margin-top {
-    margin-top: 220px;
+  margin-top: 220px;
 }
 
 div.dear-santa {
-    background-image: url('../images/dearSanta.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: auto;
-    height: 100%;
+  background-image: url("../images/dearSanta.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: auto;
+  height: 100%;
 }
 
 section.letter {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    font-family: 'Fuzzy Bubbles', cursive;
-    font-size: 24px;
-    font-weight: 700;
-    color: fcfcfb;
-    background-color: #0c5460;
-    opacity: .7;
-
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  font-family: "Fuzzy Bubbles", cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: fcfcfb;
+  background-color: #0c5460;
+  opacity: 0.7;
 }
 
 .letter-to-santa1 {
-    background-image: url('../images/snowman.jpg');
+  background-image: url("../images/snowman.jpg");
 }
 
 .letter-to-santa2 {
-    background-image: url('../images/balls.jpg');
+  background-image: url("../images/balls.jpg");
 }
 
 /* clock */
 .clock {
-    height: 60px;
-    font-family: 'Mountains of Christmas', cursive;
-    font-size: 2.5em;
-    text-align: center;
-    background: #fcfcfb;
-    opacity:0.9;
+  height: 60px;
+  font-family: "Mountains of Christmas", cursive;
+  font-size: 2.5em;
+  text-align: center;
+  background: #fcfcfb;
+  opacity: 0.9;
 
-
-    animation-name: clock;
-    animation-duration: 5s;
-    animation-timing-function: forwards;
+  animation-name: clock;
+  animation-duration: 5s;
+  animation-timing-function: forwards;
 }
 
 @keyframes clock {
-    0% {
-      transform: translate(-100vw, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
+  0% {
+    transform: translate(-100vw, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* glittery letters taken from here https://monsterspost.com/20-codepens-to-give-christmas-mood-to-your-website/ */
 .clock-blue {
-    color: #035ee2;
-    background: -webkit-linear-gradient(transparent, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/blue_glitter.gif) repeat;
-    background: -o-linear-gradient(transparent, transparent) !important;
-    -webkit-text-fill-color: transparent !important;
-    -webkit-background-clip: text !important;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    letter-spacing: 1px;
-    z-index: 999999;
-    }
-    
+  color: #035ee2;
+  background: -webkit-linear-gradient(transparent, transparent),
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/blue_glitter.gif)
+      repeat;
+  background: -o-linear-gradient(transparent, transparent) !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  letter-spacing: 1px;
+  z-index: 999999;
+}
+
 .clock-gold {
-      
-    color: gold;
-    background: -webkit-linear-gradient(transparent, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/gold_glitter.gif) repeat;
-    background: -o-linear-gradient(transparent, transparent) !important;
-    -webkit-text-fill-color: transparent !important;
-    -webkit-background-clip: text !important;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    letter-spacing: 1px;
-    z-index: 999999;
-    -webkit-background-clip: text;
+  color: gold;
+  background: -webkit-linear-gradient(transparent, transparent),
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/gold_glitter.gif)
+      repeat;
+  background: -o-linear-gradient(transparent, transparent) !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  letter-spacing: 1px;
+  z-index: 999999;
+  -webkit-background-clip: text;
 }
 
 .bg-dark {
-    background-color: #37bfc1!important;
+  background-color: #37bfc1 !important;
 }
 
 .navbar-dark .navbar-brand {
-    color: #ef4348;
-    font-size: 3rem;
-    font-family: 'Luckiest Guy', cursive;
-   -webkit-text-stroke: 1px white;
+  color: #ef4348;
+  font-size: 3rem;
+  font-family: "Luckiest Guy", cursive;
+  -webkit-text-stroke: 1px white;
 
-   text-shadow:
-       2px 2px 0 #fff,
-     -1px -1px 0 #fff,
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-       1px 1px 0 #fff;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
-    color: #ef4348;
-    font-size: 2rem;
-    font-family: 'Luckiest Guy', cursive;
-   -webkit-text-stroke: 1px white;
-    text-decoration: underline;
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
+  color: #ef4348;
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  -webkit-text-stroke: 1px white;
+  text-decoration: underline;
 
-   text-shadow:
-       2px 2px 0 #fff,
-     -1px -1px 0 #fff,
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-       1px 1px 0 #fff;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #ef4348;
-    font-size: 2rem;
-    font-family: 'Luckiest Guy', cursive;
-   -webkit-text-stroke: 1px white;
+  color: #ef4348;
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  -webkit-text-stroke: 1px white;
 }
 
-.navbar-brand{
-    margin-top: 15px;
+.navbar-brand {
+  margin-top: 15px;
 }
 
-.navbar-toggler{
-    background: #ef4348;
+.navbar-toggler {
+  background: #ef4348;
 }
 
-.navbar-brand:hover{
-    color: white;
-    text-shadow: 2px 2px 0 #ef4348, -1px -1px 0 #ef4348, 1px -1px 0 #ef4348, -1px 1px 0 #ef4348, 1px 1px 0 #ef4348;
+.navbar-brand:hover {
+  color: white;
+  text-shadow: 2px 2px 0 #ef4348, -1px -1px 0 #ef4348, 1px -1px 0 #ef4348,
+    -1px 1px 0 #ef4348, 1px 1px 0 #ef4348;
 }
 
-#santa-sleigh{
-    height: 500px;
-    display: flex;
-    margin: auto;
-    margin-top: 100px;
-    overflow: hidden;
+#santa-sleigh {
+  height: 500px;
+  display: flex;
+  margin: auto;
+  margin-top: 150px;
+  overflow: hidden;
 
-    animation-name: santa-sleigh;
-    animation-duration: 5s;
-    animation-timing-function: forwards;
+  animation-name: santa-sleigh;
+  animation-duration: 5s;
+  animation-timing-function: forwards;
 }
 
 @keyframes santa-sleigh {
-    0% {
-      transform: translate(100vw, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
+  0% {
+    transform: translate(100vw, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.intro-ps {
+  color: #ef4348;
+  font-size: 3rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff, 1px 1px 0 #fff;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-top: 75px;
+  transform: scale(0.0000001);
+
+  animation-name: intro-ps;
+  animation-duration: 4s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes intro-ps {
+  0% {
+    transform: scale(0.0000001);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Countdown */
 
 #background {
-    background: url('../images/moon.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 70vh;
-    width: 90%;
-    position: relative;
+  background: url("../images/moon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70vh;
+  width: 90%;
+  position: relative;
 }
 
-#number {
-    background: url('../images/one.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 200px;
-    height: 400px;
-    position: absolute;
-    left: 25%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.number {
+  /* background: url('../images/three.png'); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 180px;
+  height: 70%;
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #update {
-    color: gold;
-    line-height: 2;
-    font-family: 'Mountains of Christmas', cursive;
-    font-size: 1.5rem;
-    letter-spacing: 5px;
-    width: 350px;
-    position: absolute;
-    margin-top: 50px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
+  color: gold;
+  line-height: 2;
+  font-family: "Mountains of Christmas", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 5px;
+  width: 350px;
+  position: absolute;
+  margin-top: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
 }
 
 /* Media Queries */
 
 /* x-small screen size */
 @media screen and (max-width: 576px) {
-    .clock {
-        font-size: 20px;
-        padding-top: 15px;
-    }
+  .clock {
+    font-size: 20px;
+    padding-top: 15px;
+  }
 }
 
 /* small screen size */
 @media screen and (min-width: 576px) and (max-width: 768px) {
-    .clock {
-        font-size: 24px;
-        padding-top: 10px;
-    }
+  .clock {
+    font-size: 24px;
+    padding-top: 10px;
+  }
 }
 
 /* medium screen size */
 @media screen and (min-width: 768px) {
-    form.letter-to-santa {
-        width: 85%;
-    }
+  form.letter-to-santa {
+    width: 85%;
+  }
 }
 /* large Screen Size */
 
 @media screen and (max-width: 1400px) {
-    .snow-bg{
-        height: 600px;
-    }
-    #santa-sleigh{
-        height: 400px;
-    }
+  .snow-bg {
+    height: 800px;
+  }
+  #santa-sleigh {
+    height: 400px;
+  }
 }
 @media screen and (max-width: 1150px) {
-    .snow-bg{
-        height: 500px;
-    }
-    #santa-sleigh{
-        height: 300px;
-    }
+  .snow-bg {
+    height: 500px;
+  }
+  #santa-sleigh {
+    height: 300px;
+    margin-top: 100px;
+  }
+  .intro-ps {
+    font-size: 2.5rem;
+    margin-top: 25px;
+  }
 }
 /* medium Screen Size */
+@media screen and (max-width: 950px) {
+  .intro-ps {
+    font-size: 2rem;
+  }
+}
+
 @media screen and (max-width: 900px) {
-    .snow-bg{
-        height: 300px;
-    }
-    #santa-sleigh{
-        height: 200px;
-        margin-top: 50px;
-    }
+  .snow-bg {
+    height: 450px;
+  }
+  #santa-sleigh {
+    height: 250px;
+    margin-top: 100px;
+  }
 }
 @media screen and (max-width: 768px) {
-    .navbar-brand{
-        font-size: 2.5rem!important;
-    }
+  .navbar-brand {
+    font-size: 2.5rem !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .navbar-brand {
+    font-size: 2rem !important;
+  }
+  .snow-bg {
+    height: 150px;
+  }
+  #santa-sleigh {
+    height: 100px;
+    margin-top: 50px;
+  }
 }

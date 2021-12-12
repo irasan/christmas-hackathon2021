@@ -14,10 +14,11 @@
 </head>
 <body>
 <header>
-{% if 'username' in session %}
+    {% if 'username' in session %}
         <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'] }}</div>
     {% else %}
-        <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a href="{{ url_for('login') }}">Login</a>
+        <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
+                href="{{ url_for('login') }}">Login</a>
             or <a href="{{ url_for('register') }}">Register</a>.
         </div>
     {% endif %}
@@ -36,7 +37,8 @@
                     </li>
                     {% if 'username' not in session %}
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_login %}{% endblock %}" href="{{ url_for('login') }}">Login</a>
+                            <a class="nav-link {% block nav_login %}{% endblock %}"
+                               href="{{ url_for('login') }}">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% block nav_register %}{% endblock %}" href="{{ url_for('register') }}">Register</a>
@@ -46,7 +48,8 @@
                             <a class="nav-link {% block nav_countdown %}{% endblock %}" href="#">Countdown</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_profile %}{% endblock %}" href="{{ url_for('profile', username=session['username']) }}">Profile</a>
+                            <a class="nav-link {% block nav_profile %}{% endblock %}"
+                               href="{{ url_for('profile', username=session['username']) }}">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% block nav_logout %}{% endblock %}" href="{{ url_for('logout') }}">Logout</a>
@@ -57,11 +60,11 @@
         </div>
     </nav>
     <div class="clock">
-    <span id="flare"> Days left to Christmas: </span><span id="clock-inner" class="clock-gold"></span>
+        <span id="flare"> Days left to Christmas: </span><span id="clock-inner" class="clock-gold"></span>
     </div>
 </header>
 <main>
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </main>
 <footer class="py-5">
     <div class="row m-0">
@@ -69,7 +72,8 @@
             <a href="#" class="tap-target" rel="noopener" target="_blank">Ashley Rolfe</a><br>
         </div>
         <div class="col-sm-6 col-md-2 text-center">
-            <a href="https://github.com/CarlaBuongiorno" class="tap-target" rel="noopener" target="_blank">Carla Buongiorno</a><br>
+            <a href="https://github.com/CarlaBuongiorno" class="tap-target" rel="noopener" target="_blank">Carla
+                Buongiorno</a><br>
         </div>
         <div class="col-sm-6 col-md-2 text-center">
             <a href="https://github.com/irasan" class="tap-target" rel="noopener" target="_blank">Iryna Sanzhara</a><br>

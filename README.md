@@ -2,7 +2,7 @@
 
 [View the live site here](http://national-elf-service.herokuapp.com/)
 
-This website was built to fulfill the requirements of the Code Institute Christmas Hackathon. It has the goal of...
+This website was designed to bring the holiday magic to children of, but not limited to, 1 to 12 years of age. It features letter templates to Santa, which can be personalized to the wishes of both the parent and child. The letter gets sent to Santa Clause, and a printable response letter is sent back to the child directly from Santa!
 
 ![Final project image home page](docs/amiresponsive.png)
 

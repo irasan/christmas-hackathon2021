@@ -41,6 +41,9 @@
                     </li>
                     {% if 'username' not in session %}
                         <li class="nav-item">
+                            <a class="nav-link {% block nav_countdown %}{% endblock %}" href="{{ url_for('countdown') }}">Countdown</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {% block nav_login %}{% endblock %}"
                                href="{{ url_for('login') }}">Login</a>
                         </li>
@@ -48,9 +51,6 @@
                             <a class="nav-link {% block nav_register %}{% endblock %}" href="{{ url_for('register') }}">Register</a>
                         </li>
                     {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link {% block nav_countdown %}{% endblock %}" href="{{ url_for('countdown') }}">Countdown</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% block nav_profile %}{% endblock %}"
                                href="{{ url_for('profile', username=session['username']) }}">Profile</a>

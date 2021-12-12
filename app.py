@@ -51,7 +51,7 @@ def login():
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 # successful redirect to home logged in
-                return redirect(url_for('index', title="Sign In"))
+                return redirect(url_for('profile', username=session['username']))
             # must have failed set flash message
             flash('Invalid username/password combination')
     return render_template("login.html", title="Sign In", form=form)
@@ -120,18 +120,11 @@ def download_response(child_id):
     pdf = FPDF(orientation='P', unit='mm', format='A4')
     # Add a page
     pdf.add_page()
-    
     pdf.image("static/images/tempred.png", x=0, y=0, w=210, h=297, type='', link='')
     pdf.set_margins(30, 30, 30)
-    
-    # set style and size of font
-    # that you want in the pdf
     pdf.set_font("Arial", size=18)
-
-    # create a cell
     pdf.cell(0, 60, txt=line_one,
              ln=1, align='C')
-    # add another cell
     pdf.multi_cell(150, 10, txt=line_two,
              align='L')
     pdf.ln(10)
@@ -368,7 +361,7 @@ def register():
                               'password': hash_pass,
                               'email': request.form['email']})
             session['username'] = request.form['username']
-            return redirect(url_for('index'))
+            return redirect(url_for('profile', username=session['username']))
         # duplicate username set flash message and reload page
         flash('Sorry, that username is already taken - use another')
         return redirect(url_for('register'))

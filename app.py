@@ -95,6 +95,7 @@ def edit_child(child_id):
 
 @app.route("/download_response/<child_id>", methods=["GET"])
 def download_response(child_id):
+    clean_up_pdf_folder(child_id)
     child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
     line_one = f"Dear {child.get('name')}!".title()
     line_two = "Can you believe that Christmas is so close? The North pole is a busy place this time of the year."
@@ -112,28 +113,30 @@ def download_response(child_id):
     pdf = FPDF(orientation='P', unit='mm', format='A4')
     # Add a page
     pdf.add_page()
-    pdf.image("static/images/snowman.jpg", x=0, y=0, w=210, h=297, type='', link='')
+    
+    pdf.image("static/images/tempred.png", x=0, y=0, w=210, h=297, type='', link='')
+    pdf.set_margins(30, 30, 30)
     
     # set style and size of font
     # that you want in the pdf
     pdf.set_font("Arial", size=18)
 
     # create a cell
-    pdf.cell(100, 10, txt=line_one,
+    pdf.cell(0, 60, txt=line_one,
              ln=1, align='C')
-    pdf.ln()
     # add another cell
-    pdf.multi_cell(200, 10, txt=line_two,
+    pdf.multi_cell(150, 10, txt=line_two,
              align='L')
     pdf.ln(10)
-    pdf.multi_cell(200, 10, txt=nice_thing,
+    pdf.multi_cell(150, 10, txt=nice_thing,
              align='L')
-    pdf.multi_cell(200, 10, txt=recommendation,
+    pdf.multi_cell(150, 10, txt=recommendation,
              align='L')
     pdf.ln(10)
-    pdf.cell(200, 10, txt=closing,
-             ln=8, align='L')
-    pdf.multi_cell(200, 10, txt=signature,
+    pdf.multi_cell(150, 10, txt=closing,
+             align='L')
+    pdf.ln()
+    pdf.multi_cell(150, 10, txt=signature,
              align='R')
     # get unique filename
     filename = f"static/pdfs/responseto{child_id}{int(time.time())}.pdf"
@@ -370,7 +373,7 @@ def clean_up_pdf_folder(child_id):
     one per child so the filesystem doesn't get to big"""
     only_pdf_files = [f for f in listdir('static/pdfs/') if isfile(join('static/pdfs/', f))]
     for pdf in only_pdf_files:
-        if pdf[:24] == child_id:
+        if pdf[:24] == child_id or pdf[10:34] == child_id:
             os.remove(f'static/pdfs/{pdf}')
     return
 

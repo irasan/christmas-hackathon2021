@@ -4,6 +4,8 @@ from flask_pymongo import PyMongo
 from config import Config
 from fpdf import FPDF
 from bson.objectid import ObjectId
+from os import listdir
+from os.path import isfile, join
 import bcrypt
 import os
 import time
@@ -142,6 +144,7 @@ def download_response(child_id):
 
 @app.route("/download_letter/<child_id>", methods=["GET"])
 def download_letter(child_id):
+    clean_up_pdf_folder(child_id)
     child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
     line_three = ""
     behaviour = ""
@@ -360,6 +363,16 @@ def register():
         flash('Sorry, that username is already taken - use another')
         return redirect(url_for('register'))
     return render_template('register.html', title='Register', form=form)
+
+
+def clean_up_pdf_folder(child_id):
+    """ This function removes any stored pdf for child in order to ensure that their is only
+    one per child so the filesystem doesn't get to big"""
+    only_pdf_files = [f for f in listdir('static/pdfs/') if isfile(join('static/pdfs/', f))]
+    for pdf in only_pdf_files:
+        if pdf[:24] == child_id:
+            os.remove(f'static/pdfs/{pdf}')
+    return
 
 
 if __name__ == '__main__':

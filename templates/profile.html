@@ -26,7 +26,7 @@
         <a href="{{ url_for('edit_child', child_id=child._id) }}">Answer</a>
         {% endif %}
         </p>
-        <a href="{{ url_for('download_letter') }}" class="mb-5">Download {{ child.name|title }}'s letter to Santa</a>
+        <a href="{{ url_for('download_letter', child_id=child._id) }}" class="mb-5">Download {{ child.name|title }}'s letter to Santa</a>
       {% endfor %}
     </div>
     {% endif %}

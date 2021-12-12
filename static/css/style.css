@@ -286,17 +286,40 @@ section.letter {
   position: relative;
 }
 
-.number {
-  /* background: url('../images/three.png'); */
+.number,
+.digit-1,
+.digit-2,
+.hourglass {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 180px;
-  height: 70%;
   position: absolute;
-  left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.number {
+  width: 180px;
+  height: 70%;
+  left: 25%;
+}
+
+.digit-1 {
+  width: 120px;
+  height: 50%;
+  left: 15%;
+}
+
+.digit-2 {
+  width: 130px;
+  height: 50%;
+  left: 28%;
+}
+
+.hourglass {
+    width: 100px;
+    left: 28%;
+    top: 60%;
 }
 
 #update {
@@ -305,10 +328,10 @@ section.letter {
   font-family: "Mountains of Christmas", cursive;
   font-size: 1.5rem;
   letter-spacing: 5px;
-  width: 350px;
+  width: 50%;
   position: absolute;
   margin-top: 50px;
-  left: 50%;
+  left: 60%;
   top: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;

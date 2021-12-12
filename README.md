@@ -106,37 +106,38 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 ## Features
 
 * Home Page
-    * ![Home Page]()
+    * ![Home Page](docs/screenshots/home.png)
 
 ---
 
 * Register
-    * ![Register Form]()
+    * ![Register Form](docs/screenshots/register.png)
 
 ---
 
 * Log In
-    * ![Log In Form]()
+    * ![Log In Form](docs/screenshots/login.png)
 
 ---
 
 * Log Out
-    * ![Log Out On Navbar]()
+    * ![Log Out On Navbar](docs/screenshots/navbar.png)
 
 ---
 
 * Letter to Santa templates determined by the age of the child.
-    * ![Log Out On Navbar]()
+    * ![Letter template small kid](docs/screenshots/letter_sm_kid.png)
+    * ![Letter template big kid](docs/screenshots/letter_big_kid.png)
 
 ---
 
 * A letter back from Santa.
-    * ![Log Out On Navbar]()
+    * ![Letter from Santa](docs/screenshots/.png)
 
 ---
 
 * A 12-day update-countdown for how Santa is preparing for Christmas.
-
+    * ![12-day update-countdown](docs/screenshots/countdown_12.png)
 ---
 #### Process Flowchart
 

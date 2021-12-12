@@ -243,13 +243,13 @@ section.letter {
     position: relative;
 }
 
-#number {
-    background: url('../images/one.png');
-    background-size: cover;
+.number {
+    /* background: url('../images/three.png'); */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 200px;
-    height: 400px;
+    width: 180px;
+    height: 70%;
     position: absolute;
     left: 25%;
     top: 50%;

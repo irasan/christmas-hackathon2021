@@ -80,10 +80,6 @@ class BigKidLetterForm(FlaskForm):
 
 
 class EditChildForm(FlaskForm):
-    # questions = SelectMultipleField('What would you like your child to do more often?',
-    #                         choices=[
-    #                         'Go to bed in time', 'Brush teeth everyday', 'Clean the room',
-    #                         'Make bed', 'Do homework', 'Be kind'])                                               
     bedtime = BooleanField('go to bed in time', false_values=None)                                               
     brush_teeth = BooleanField('brush teeth everyday', false_values=None)
     clean_room = BooleanField('clean the room', false_values=None)

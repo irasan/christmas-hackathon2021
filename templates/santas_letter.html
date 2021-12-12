@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block nav_register %}active{% endblock %}
+{% block content %}
+
+    <div class="container letter-ready-for-santa">
+        <h1>from: {{ child.name|title }} to Santa</h1>
+        <h3>Dear Santa,</h3>
+        <p>Hello, my name {{ child.name|title }} and I am {{ child.age }} years old. I am really very excited for
+            Christmas
+            this year!</p>
+        {% if child.behaviour == 'Nice' %}
+            <p>I have been very good this year and have been thinking of what I would like for Christmas.</p>
+        {% elif child.behaviour == 'Naughty' %}
+            <p>I know I have been a little naughty this year and promise to make better choices, even so, I have been thinking of what I would like for Christmas.</p>
+        {% else %}
+            <p>I have been mostly good this year and have been thinking of what I would like for Christmas.</p>
+        {% endif %}
+        <p>Can you please get me a {{ child.gift1 }} and a {{ child.gift2 }} and say hi to {{ child.say_hi }} for me.</p>
+    {% if child.milk == 'y' or child.cookies == 'y' %}
+    <p>When you come I will leave some
+    {% if child.milk == 'y' %}milk{% endif %}
+    {% if child.milk == 'y' and child.cookies == 'y' %} and {% endif %}
+        {% if child.cookies == 'y' %}cookies{% endif %}.</p>
+    {% endif %}
+    </div>
+{% endblock %}

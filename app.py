@@ -70,17 +70,74 @@ def edit_child(child_id):
     form = EditChildForm()
     if "username" in session:
         if request.method == "POST":
+            nice_thing = request.form.get("nice_thing")
+            favorite = request.form.get("favorite")
+            homework = request.form.get("homework")
+            be_kind = request.form.get("be_kind")
+            make_bed = request.form.get("make_bed")
+            clean_room = request.form.get("clean_room")
+            bedtime = request.form.get("bedtime")
+
             mongo.db.children.find_one_and_update({"_id": ObjectId(child_id)}, 
-            { "$set": { "favorite": request.form.get("favorite"), 
-                    "nice_thing": request.form.get("nice_thing"),
-                    "wanted_behavior": [("do homework", request.form.get("homework")), 
-                                    ("be kind", request.form.get("be_kind")),
-                                    ("make bed", request.form.get("make_bed")),
-                                    ("clean room", request.form.get("clean_room")),
-                                    ("go to bed in time", request.form.get("bedtime"))]}})
+            { "$set": { "favorite": favorite, 
+                    "nice_thing": nice_thing,
+                    "wanted_behavior": [("do homework, ", homework), 
+                                    ("be kind, ", be_kind),
+                                    ("make bed, ", make_bed),
+                                    ("clean room, ", clean_room),
+                                    ("go to bed in time, ", bedtime)]}})
             return redirect(url_for("profile", username=session["username"]))
         return render_template("edit_child.html", title="Edit Child", child=child, form=form)
     return redirect(url_for("login"))
+
+
+@app.route("/download_response/<child_id>", methods=["GET"])
+def download_response(child_id):
+    child = mongo.db.children.find_one({"_id": ObjectId(child_id)})
+    line_one = f"Dear {child.get('name')}!".title()
+    line_two = "Can you believe that Christmas is so close? The North pole is a busy place this time of the year."
+    nice_thing = f"I checked my list and I was delighted to see your name on the nice list. I was very impressed how you {child.get('nice_thing')}."
+    mylist = []
+    for n in child.get('wanted_behavior'):
+        if n[1] == 'y':
+            mylist.append(n[0])
+    wanted_list = ''.join(mylist);
+    recommendation = f"Now {wanted_list} and remember the spirit of Christmas all year long!"
+    closing = f"Merry Christmas! By the way, {child.get('favorite')} is my favorite too!"
+    signature = "Checked twice, \n Santa Claus"
+
+    # save FPDF() class into a variable pdf
+    pdf = FPDF(orientation='P', unit='mm', format='A4')
+    # Add a page
+    pdf.add_page()
+    pdf.image("static/images/snowman.jpg", x=0, y=0, w=210, h=297, type='', link='')
+    
+    # set style and size of font
+    # that you want in the pdf
+    pdf.set_font("Arial", size=18)
+
+    # create a cell
+    pdf.cell(100, 10, txt=line_one,
+             ln=1, align='C')
+    pdf.ln()
+    # add another cell
+    pdf.multi_cell(200, 10, txt=line_two,
+             align='L')
+    pdf.ln(10)
+    pdf.multi_cell(200, 10, txt=nice_thing,
+             align='L')
+    pdf.multi_cell(200, 10, txt=recommendation,
+             align='L')
+    pdf.ln(10)
+    pdf.cell(200, 10, txt=closing,
+             ln=8, align='L')
+    pdf.multi_cell(200, 10, txt=signature,
+             align='R')
+    # get unique filename
+    filename = f"static/pdfs/responseto{child_id}{int(time.time())}.pdf"
+    # save the pdf with name .pdf
+    pdf.output(filename)
+    return redirect(f"../{filename}")
 
 
 @app.route("/download_letter/<child_id>", methods=["GET"])

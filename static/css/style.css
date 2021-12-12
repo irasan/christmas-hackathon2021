@@ -41,9 +41,8 @@ h1 {
 }
 
 form {
-  width: 50%;
   margin: 0 auto;
-  padding: 20px;
+  text-align: center;
 }
 
 a {
@@ -410,12 +409,12 @@ section.letter {
 }
 @media screen and (max-width: 768px) {
   .navbar-brand {
-    font-size: 2.5rem !important;
+    font-size: 1.5rem !important;
   }
 }
 @media screen and (max-width: 600px) {
   .navbar-brand {
-    font-size: 2rem !important;
+    font-size: 1.2rem !important;
   }
   .snow-bg {
     height: 150px;

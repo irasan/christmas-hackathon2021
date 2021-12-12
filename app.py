@@ -57,6 +57,7 @@ def login():
     return render_template("login.html", title="Sign In", form=form)
 
 
+
 @app.route("/profile/<username>")
 def profile(username):
     if "username" in session:

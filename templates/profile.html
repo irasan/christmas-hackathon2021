@@ -20,14 +20,15 @@
         <strong style="margin-top: 20px;">Special thing your child did/said:</strong><br>
         {{ child.nice_thing }}<br>
         <a href="{{ url_for('edit_child', child_id=child._id) }}">Edit</a>
-        <a href="{{ url_for('download_response', child_id=child._id) }}">Download letter from Santa</a>
+        <a href="{{ url_for('download_response', child_id=child._id) }}" target="_blank">Download letter from Santa</a>
 
         {% else %}
           We will send your child a letter from Santa. If you'd like it to be personalised, please answer the following questions:
         <a href="{{ url_for('edit_child', child_id=child._id) }}">Answer</a>
         {% endif %}
         </p>
-        <a href="{{ url_for('download_letter', child_id=child._id) }}" class="mb-5">Download {{ child.name|title }}'s letter to Santa</a>
+        <a href="{{ url_for('download_letter', child_id=child._id) }}" target="_blank" class="mb-5">Download {{ child.name|title
+                }}'s letter to Santa</a>
       {% endfor %}
     </div>
     {% endif %}

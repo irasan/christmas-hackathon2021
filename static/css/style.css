@@ -30,6 +30,7 @@
 }
 
 footer {
+  background: #324B4B;
   margin-top: 20px;
 }
 
@@ -112,7 +113,7 @@ section.letter {
 
   animation-name: clock;
   animation-duration: 5s;
-  animation-timing-function: forwards;
+  animation-fill-mode: forwards;
 }
 
 /* flash messages */
@@ -177,6 +178,10 @@ section.letter {
   background-color: #37bfc1 !important;
 }
 
+.navbar{
+  padding-bottom: 0!important;
+}
+
 .navbar-dark .navbar-brand {
   color: #ef4348;
   font-size: 3rem;
@@ -222,6 +227,29 @@ section.letter {
     -1px 1px 0 #ef4348, 1px 1px 0 #ef4348;
 }
 
+.collapse{
+  margin-top: 10px;
+}
+
+.login-text{
+  font-size: 1.2rem;
+  padding: 0!important;
+  text-shadow: 2px 2px 0 #ef4348, -1px -1px 0 #ef4348, 1px -1px 0 #ef4348,-1px 1px 0 #ef4348, 1px 1px 0 #ef4348;
+}
+
+.login-text a{
+  font-weight: 900;
+  color: #fff;
+  -webkit-text-stroke: 1px #972929;
+  text-shadow: 2px 2px 0 #972929, -1px -1px 0 #972929, 1px -1px 0 #972929, -1px 1px 0 #972929, 1px 1px 0 #972929;
+}
+
+.login-text a:hover{
+  color: #972929;
+  -webkit-text-stroke: 1px white;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
 #santa-sleigh {
   height: 500px;
   display: flex;
@@ -231,7 +259,7 @@ section.letter {
 
   animation-name: santa-sleigh;
   animation-duration: 5s;
-  animation-timing-function: forwards;
+  animation-fill-mode: forwards;
 }
 
 @keyframes santa-sleigh {
@@ -332,6 +360,35 @@ section.letter {
   padding: 10px;
 }
 
+#dev-names{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tap-target{
+  letter-spacing: 2px;
+  color: #5CBE7D;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #972929, -1px -1px 0 #972929, 1px -1px 0 #972929, -1px 1px 0 #972929, 1px 1px 0 #972929;
+}
+
+.tap-target:hover{
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #5CBE7D, -1px -1px 0 #5CBE7D, 1px -1px 0 #5CBE7D,
+    -1px 1px 0 #5CBE7D, 1px 1px 0 #5CBE7D;
+}
+
+#copyright{
+  letter-spacing: 2px;
+  color: #5CBE7D;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #972929, -1px -1px 0 #972929, 1px -1px 0 #972929, -1px 1px 0 #972929, 1px 1px 0 #972929;
+
 #update {
     font-size: 1.5rem;
     left: 60%;
@@ -377,7 +434,20 @@ section.letter {
     height: 400px;
   }
 }
+@media screen and (max-width: 1200px) {
+  #nav-container{
+    max-width: none!important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #nav-container{
+    max-width: none!important;
+  }
+}
 @media screen and (max-width: 1150px) {
+  .navbar-brand {
+    font-size: 2.2rem !important;
+  }
   .snow-bg {
     height: 500px;
   }
@@ -395,8 +465,10 @@ section.letter {
   .intro-ps {
     font-size: 2rem;
   }
+  .snow-bg {
+    height: 490px;
+  }
 }
-
 @media screen and (max-width: 900px) {
   .snow-bg {
     height: 450px;
@@ -406,9 +478,26 @@ section.letter {
     margin-top: 100px;
   }
 }
+@media screen and (max-width: 800px) {
+  .intro-ps {
+    font-size: 1.7rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .navbar-brand {
     font-size: 1.5rem !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .snow-bg {
+    height: 415px;
+  }
+  #santa-sleigh {
+    height: 225px;
+    margin-top: 100px;
+  }
+  .intro-ps {
+    font-size: 1.4rem;
   }
 }
 @media screen and (max-width: 600px) {
@@ -416,10 +505,119 @@ section.letter {
     font-size: 1.2rem !important;
   }
   .snow-bg {
-    height: 150px;
+    height: 400px;
   }
+  #santa-sleigh {
+    height: 300px;
+    margin-top: 30px;
+  }
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-50vw, 0);
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .intro-ps {
+    font-size: 1.2rem;
+  }
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-60vw, 0);
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-70vw, 0);
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+  #login-text{
+    font-size: 1rem;
+  }
+  .intro-ps {
+    font-size: 1rem;
+  }
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-95vw, 0);
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-105vw, 0);
+    }
+  }
+}
+@media screen and (max-width: 380px) {
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(-125vw, 0);
+    }
+  }
+}
+@media screen and (max-width: 330px) {
   #santa-sleigh {
     height: 100px;
     margin-top: 50px;
+  }
+  .navbar-brand{
+    font-size: 1.2rem!important;
+  }
+}
+@media screen and (max-width: 330px) {
+  .py-5, .pt-5, .pb-5{
+    padding: 1rem!important;
+  }
+  .clock{
+    font-size: 1.2rem;
+  }
+  .dev-names{
+    padding-top: 25px;
+  }
+  footer{
+    margin: 0!important;
+    padding: 0!important;
+  }
+  .snow-bg {
+    height: 220px;
+  }
+  .intro-ps {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+  @keyframes santa-sleigh {
+    0% {
+      transform: translate(100vw, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
 }

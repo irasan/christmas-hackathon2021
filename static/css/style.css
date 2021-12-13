@@ -25,6 +25,10 @@
   padding: 20px;
 }
 
+.blue-bg {
+  background-color: #37bfc1;
+}
+
 footer {
   margin-top: 20px;
 }
@@ -69,10 +73,6 @@ a {
   border-color: #0e6d4d;
 }
 
-.margin-top {
-  margin-top: 220px;
-}
-
 div.dear-santa {
   background-image: url("../images/dearSanta.png");
   background-size: contain;
@@ -89,9 +89,8 @@ section.letter {
   font-family: "Fuzzy Bubbles", cursive;
   font-size: 24px;
   font-weight: 700;
-  color: fcfcfb;
+  color: #fcfcfb;
   background-color: #0c5460;
-  opacity: 0.7;
 }
 
 .letter-to-santa1 {
@@ -99,7 +98,7 @@ section.letter {
 }
 
 .letter-to-santa2 {
-  background-image: url("../images/balls.jpg");
+  background-image: url("../images/balls-big-letter.jpg");
 }
 
 /* clock */

@@ -51,11 +51,10 @@ def login():
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 # successful redirect to home logged in
-                return redirect(url_for('index', title="Sign In"))
+                return redirect(url_for('profile', username=session['username']))
             # must have failed set flash message
             flash('Invalid username/password combination')
     return render_template("login.html", title="Sign In", form=form)
-
 
 
 @app.route("/profile/<username>")
@@ -362,7 +361,7 @@ def register():
                               'password': hash_pass,
                               'email': request.form['email']})
             session['username'] = request.form['username']
-            return redirect(url_for('index'))
+            return redirect(url_for('profile', username=session['username']))
         # duplicate username set flash message and reload page
         flash('Sorry, that username is already taken - use another')
         return redirect(url_for('register'))

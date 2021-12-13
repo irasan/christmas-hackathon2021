@@ -134,7 +134,7 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
   ```
   def clean_up_pdf_folder(child_id):
     """ This function removes any stored pdf for child in order to ensure that their is only
-    one per child so the filesystem doesn't get to big"""
+    one per child so the filesystem doesn't get too big"""
     # gets all filesnames in list of pdf folder
     only_pdf_files = [f for f in listdir('static/pdfs/') if isfile(join('static/pdfs/', f))]
     for pdf in only_pdf_files:

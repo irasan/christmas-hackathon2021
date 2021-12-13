@@ -29,18 +29,18 @@
   <h3 style="text-align: center; margin: 5vh;">To create a letter to Santa pick one of the options below:</h3>
   <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto">
-      <div class="card" style="width: 18rem;">
+      <div class="card mx-auto" style="width: 18rem;">
         <img src="{{ url_for('static', filename='images/stamp.jpg') }}" class="card-img-top" alt="christmas_stamp">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h5 class="card-title">Letters for 1-6 years olds</h5>
           <a href="{{ url_for('get_small_kid_letter') }}" class="btn btn-primary">Create a letter</a>
         </div>
       </div>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto">
-      <div class="card" style="width: 18rem;">
+      <div class="card mx-auto" style="width: 18rem;">
         <img src="{{ url_for('static', filename='images/stamp1.jpg') }}" class="card-img-top" alt="christmas_stamp">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h5 class="card-title">Letters for 7-12 years olds</h5>
           <a href="{{ url_for('get_big_kid_letter') }}" class="btn btn-primary">Create a letter</a>
         </div>

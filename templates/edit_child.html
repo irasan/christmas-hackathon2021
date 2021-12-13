@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <h1>Edit {{ child.name|title }}'s Details</h1>
+    <h1 class="heading">Edit {{ child.name|title }}'s Details</h1>
         <form method="POST" action="" class="letter-to-santa">
             {{ form.csrf_token }}
             <p> Please tick a few things, you would like your child to do better/more often:<br>

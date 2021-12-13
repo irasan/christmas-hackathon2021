@@ -3,21 +3,21 @@
 {% block content %}
 
 <div class="container profile">
-  <h1>My profile</h1>
+  <h1 class="heading text-shadow">My profile</h1>
   {% if children|length > 0 %}
   <div class="row">
     {% for child in children %}
     <div class="card mb-4 mx-auto" style="width: 80%;">
       <div class="card-body">
         <h5 class="card-title">{{ child.name|title }} - {{ child.age }} y.o.</h5>
-        <a href="{{ url_for('download_letter', child_id=child._id) }}" class="mb-5">Download {{ child.name|title }}'s
+        <a href="{{ url_for('download_letter', child_id=child._id) }}" target="_blank" class="mb-5">Download {{ child.name|title }}'s
           letter to Santa <i class="fas fa-arrow-circle-down"></i></a>
         <p class="card-text">Here you can download a response letter from Santa to {{ child.name|title }}. <br>
           If you'd like to personalise it, please press 
           <a href="{{ url_for('edit_child', child_id=child._id) }}" class="card-link">Edit
             <i class="fas fa-pencil-alt"></i></a></p>
         
-        <a href="{{ url_for('download_response', child_id=child._id) }}" class="card-link">Download Santa's response
+        <a href="{{ url_for('download_response', child_id=child._id) }}" target="_blank" class="card-link">Download Santa's response
           <i class="fas fa-envelope-open"></i></a>
       </div>
 
@@ -29,18 +29,18 @@
   <h3 style="text-align: center; margin: 5vh;">To create a letter to Santa pick one of the options below:</h3>
   <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto">
-      <div class="card" style="width: 18rem;">
+      <div class="card mx-auto" style="width: 18rem;">
         <img src="{{ url_for('static', filename='images/stamp.jpg') }}" class="card-img-top" alt="christmas_stamp">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h5 class="card-title">Letters for 1-6 years olds</h5>
           <a href="{{ url_for('get_small_kid_letter') }}" class="btn btn-primary">Create a letter</a>
         </div>
       </div>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4 mx-auto">
-      <div class="card" style="width: 18rem;">
+      <div class="card mx-auto" style="width: 18rem;">
         <img src="{{ url_for('static', filename='images/stamp1.jpg') }}" class="card-img-top" alt="christmas_stamp">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h5 class="card-title">Letters for 7-12 years olds</h5>
           <a href="{{ url_for('get_big_kid_letter') }}" class="btn btn-primary">Create a letter</a>
         </div>

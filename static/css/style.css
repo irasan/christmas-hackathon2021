@@ -405,6 +405,85 @@ section.letter {
     left: 50%;
 }
 
+#login, #register{
+  background: #58c6c8;
+  border-radius: 25px;
+  border: #314a4b dotted;
+  padding-bottom: 10px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+.user-forms{
+  background: #58c6c8;
+  border-radius: 25px;
+  border: #314a4b dotted;
+  margin-bottom: 5vh;
+}
+
+.user-forms label{
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#remember-me label{
+  font-size: 1.3rem;
+}
+
+#form-button{
+  font-size: 1.7rem;
+  padding: 10px 15px;
+
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#form-button input{
+  background: white;
+  color: #58c6c8;
+  padding: 12px 20px 0;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#form-button input:hover{
+  background: white;
+  color: #314a4b;
+  padding: 12px 20px 0;
+  text-shadow: 2px 2px 0 #58c6c8, -1px -1px 0 #58c6c8, 1px -1px 0 #58c6c8, -1px 1px 0 #58c6c8, 1px 1px 0 #58c6c8;
+}
+
+.user-forms p i{
+  margin: 0 10px;
+}
+
+#switch-portal{
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#switch-portal a{
+  color: #fff;
+  text-decoration: underline;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#switch-portal a:hover{
+  color: #314a4b;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
 /* Media Queries */
 
 /* x-small screen size */

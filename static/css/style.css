@@ -34,7 +34,7 @@
 }
 
 footer {
-  background: #324B4B;
+  background: #37bfc1;
   margin-top: 20px;
 }
 
@@ -126,18 +126,6 @@ section.letter {
   animation-duration: 5s;
   animation-fill-mode: forwards;
 }
-
-/* flash messages */
-/* .flashes {
-  margin: auto;
-}
-
-.flashes h4 {
-  margin: auto;
-  text-align: center;
-  line-height: 2;
-  color: #0e6d4d;
-} */
 
 /* profile */
 .profile {
@@ -366,6 +354,7 @@ section.letter {
     left: 28%;
     top: 60%;
 }
+
 #xmas-box,
 #update {
   color: gold;
@@ -386,7 +375,7 @@ section.letter {
 
 .tap-target{
   letter-spacing: 2px;
-  color: #5CBE7D;
+  color: #fff;
   font-size: 1.5rem;
   font-family: "Luckiest Guy", cursive;
   text-shadow: 2px 2px 0 #972929, -1px -1px 0 #972929, 1px -1px 0 #972929, -1px 1px 0 #972929, 1px 1px 0 #972929;
@@ -394,19 +383,18 @@ section.letter {
 
 .tap-target:hover{
   letter-spacing: 2px;
-  color: #fff;
+  color: #ef4348;
   font-size: 1.5rem;
   font-family: "Luckiest Guy", cursive;
-  text-shadow: 2px 2px 0 #5CBE7D, -1px -1px 0 #5CBE7D, 1px -1px 0 #5CBE7D,
-    -1px 1px 0 #5CBE7D, 1px 1px 0 #5CBE7D;
+  -webkit-text-stroke: 1px white;
 }
 
 #copyright{
   letter-spacing: 2px;
-  color: #5CBE7D;
+  color: #ef4348;
   font-size: 1.5rem;
   font-family: "Luckiest Guy", cursive;
-  text-shadow: 2px 2px 0 #972929, -1px -1px 0 #972929, 1px -1px 0 #972929, -1px 1px 0 #972929, 1px 1px 0 #972929;
+  -webkit-text-stroke: 1px white;
 }
 
 #update {

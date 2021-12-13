@@ -10,14 +10,14 @@
     <div class="card mb-4 mx-auto" style="width: 80%;">
       <div class="card-body">
         <h5 class="card-title">{{ child.name|title }} - {{ child.age }} y.o.</h5>
-        <a href="{{ url_for('download_letter', child_id=child._id) }}" class="mb-5">Download {{ child.name|title }}'s
+        <a href="{{ url_for('download_letter', child_id=child._id) }}" target="_blank" class="mb-5">Download {{ child.name|title }}'s
           letter to Santa <i class="fas fa-arrow-circle-down"></i></a>
         <p class="card-text">Here you can download a response letter from Santa to {{ child.name|title }}. <br>
           If you'd like to personalise it, please press 
           <a href="{{ url_for('edit_child', child_id=child._id) }}" class="card-link">Edit
             <i class="fas fa-pencil-alt"></i></a></p>
         
-        <a href="{{ url_for('download_response', child_id=child._id) }}" class="card-link">Download Santa's response
+        <a href="{{ url_for('download_response', child_id=child._id) }}" target="_blank" class="card-link">Download Santa's response
           <i class="fas fa-envelope-open"></i></a>
       </div>
 

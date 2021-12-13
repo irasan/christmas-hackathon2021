@@ -142,7 +142,8 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
         if pdf[:24] == child_id or pdf[10:34] == child_id:
             # if so delete file
             os.remove(f'static/pdfs/{pdf}')
-     return```
+     return
+  ```
 
 ---
 

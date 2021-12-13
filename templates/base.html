@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div id="nav-container" class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">National Elf Services</a>
+            <a class="navbar-brand text-shadow" href="{{ url_for('index') }}">National Elf Services</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,26 +28,26 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item {% block nav_index %}{% endblock %}">
-                        <a class="nav-link" href="{{ url_for('index') }}">Home
+                        <a class="nav-link text-shadow" href="{{ url_for('index') }}">Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% block nav_countdown %}{% endblock %}" href="{{ url_for('countdown') }}">Countdown</a>
+                        <a class="nav-link text-shadow {% block nav_countdown %}{% endblock %}" href="{{ url_for('countdown') }}">Countdown</a>
                     </li>
                     {% if 'username' not in session %}
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_login %}{% endblock %}"
+                            <a class="nav-link text-shadow {% block nav_login %}{% endblock %}"
                                href="{{ url_for('login') }}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% block nav_register %}{% endblock %}" href="{{ url_for('register') }}">Register</a>
+                            <a class="nav-link text-shadow {% block nav_register %}{% endblock %}" href="{{ url_for('register') }}">Register</a>
                         </li>
                     {% else %}
-                        <li class="nav-item">
+                        <li class="nav-item text-shadow">
                             <a class="nav-link {% block nav_profile %}{% endblock %}"
                                href="{{ url_for('profile', username=session['username']) }}">Profile</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-shadow">
                             <a class="nav-link {% block nav_logout %}{% endblock %}" href="{{ url_for('logout') }}">Logout</a>
                         </li>
                     {% endif %}
@@ -55,12 +55,9 @@
             </div>
         </div>
     </nav>
-    {% if 'username' in session %}
-    <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'].capitalize() }}</div>
-    {% else %}
+    {% if 'username' not in session %}
         <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
-                href="{{ url_for('login') }}">Login</a>
-            or <a href="{{ url_for('register') }}">Register</a>
+                href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a>
         </div>
     {% endif %}
     <div class="clock">
@@ -70,13 +67,17 @@
 <section>
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <div class="row flashes">
-        <h4>{{ message }}</h4>
-    </div>
-    {% endfor %}
-    {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+            <aside class="container-fluid">
+                <div class="row flashes">
+                    <div class="col login-text text-light font-italic bg-dark pt-2 pr-4 text-center">
+                        <h4>{{ message }}</h4>
+                    </div>
+                </div>
+            </aside>
+            {% endfor %}
+        {% endif %}
     {% endwith %}
 </section>
 <main>

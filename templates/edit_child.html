@@ -3,8 +3,8 @@
 {% block content %}
 
 <div class="container">
-    <h1>Edit {{ child.name|title }}'s Details</h1>
-        <form method="POST" action="" class="letter-to-santa">
+    <h1 id="edit-child-header" class="heading">Edit {{ child.name|title }}'s Details</h1>
+        <form id="edit-child-form" method="POST" action="" class="letter-to-santa">
             {{ form.csrf_token }}
             <p> Please tick a few things, you would like your child to do better/more often:<br>
                 {{ form.brush_teeth }}
@@ -26,7 +26,7 @@
                 {{ form.favorite.label }}
                 {{ form.favorite }}
             </p>
-            <p>{{ form.submit() }}</p>
+            <p id="edit-child-btn">{{ form.submit() }}</p>
         </form>
 </div>
 {% endblock %}

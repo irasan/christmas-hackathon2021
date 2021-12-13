@@ -174,22 +174,15 @@ MongoDB was used to store data for this site in a database. The data has been se
 
 ### Users
 
-| User |  Type  |  Relationship  |
-|---|---|---|
-| _id | ObjectId |    |
-| full_name | string |    |
-| username | string |    |
-| password | string |    |
-| email | string |    |
+![alt text](docs/screenshots/users.png "Users collection")
 
 ### Children
 
-| Comics |  Type  |
-|---|---|
-| _id | ObjectId |
-| name | string |
-| age | string |
-|  | string |
+![alt text](docs/screenshots/children.png "Children collection")
+
+A screenshot of a document from Children's collection
+
+![alt text](docs/screenshots/mongodb-screenshot.png "Document from children collection")
 
 [Back to Top](#national-elf-services)
 
@@ -347,14 +340,6 @@ MongoDB was used to store data for this site in a database. The data has been se
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/irasan/christmas-hackathon2021/pull/4)
-
-[Back to Top](#national-elf-services)
-
----
-
-## **Testing And Project Barrier Solutions**
-
-All testing and project barriers and solutions has been documented here - [TESTING.md](https://github.com/irasan/christmas-hackathon2021/pull/4/TESTING.md)
 
 [Back to Top](#national-elf-services)
 

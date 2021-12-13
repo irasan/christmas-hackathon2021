@@ -88,4 +88,4 @@ class EditChildForm(FlaskForm):
     be_kind = BooleanField('be kind', false_values=None)
     favorite = StringField('', validators=[Length(max=30)])
     nice_thing = StringField('', validators=[Length(min=10, max=120)])
-    submit = SubmitField('Add')
+    submit = SubmitField('Edit')

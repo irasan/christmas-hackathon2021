@@ -21,6 +21,10 @@
   color: #145840;
 }
 
+.text-shadow {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
 .container-fluid {
   padding: 20px;
 }
@@ -43,6 +47,13 @@ h1 {
   margin: 5vh auto;
   padding: 20px;
   text-align: center;
+}
+
+h1.heading {
+  color: #0e6d4d;
+  font-size: 2.75rem;
+  font-family: "Luckiest Guy", cursive;
+  -webkit-text-stroke: 1px white;
 }
 
 form {
@@ -215,6 +226,10 @@ section.letter {
 
 .navbar-brand {
   margin-top: 15px;
+}
+
+.navbar-brand.text-shadow {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
 }
 
 .navbar-toggler {

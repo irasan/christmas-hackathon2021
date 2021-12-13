@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block nav_login %}active{% endblock %}
 {% block content %}
-    <h1 class="heading text-shadow">Sign In</h1>
+    <h1 id="login">Login</h1>
     <div class="container">
-        <form action="" method="post">
+        <form class="user-forms" action="" method="post">
             {{ form.csrf_token }}
             <p>
                 {{ form.username.label }}<br>
@@ -19,11 +19,11 @@
                     <span style="color: red;">{{ error }}</span>
                 {% endfor %}
             </p>
-            <p>
+            <p id="remember-me">
                 {{ form.remember_me() }} {{ form.remember_me.label }}
             </p>
-            <p>{{ form.submit() }}</p>
-            <p>Not registered? Then please <a href="{{ url_for('register') }}">register here</a></p>
+            <p id="form-button"><i class="fas fa-sign-in-alt"></i>{{ form.submit() }}</p>
+            <p id="switch-portal">Not registered? Then please <a href="{{ url_for('register') }}">register here</a></p>
         </form>
     </div>
 {% endblock %}

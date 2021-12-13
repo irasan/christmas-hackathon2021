@@ -499,6 +499,83 @@ form.letter {
   text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
+#profile-name, #create-letter{
+  font-family: "Luckiest Guy", cursive;
+  color: #314a4b;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+#profile-name{
+  margin-bottom: 0;
+}
+
+#profile-delete{
+  width: 25%;
+  display: flow-root;
+  margin: 0 auto 3vh;
+}
+
+#edit-child-header{
+  background: #58c6c8;
+  border-radius: 25px;
+  border: #314a4b dotted;
+  padding-bottom: 10px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#edit-child-form{
+  background: #58c6c8;
+  border-radius: 25px;
+  border: #314a4b dotted;
+  margin-bottom: 5vh;
+}
+
+#edit-child-form p {
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#edit-child-form label{
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#edit-child-btn{
+  font-size: 1.7rem;
+  padding: 10px 15px;
+
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#edit-child-btn input{
+  background: white;
+  color: #58c6c8;
+  letter-spacing: 2px;
+  padding: 12px 20px 0;
+  text-shadow: 2px 2px 0 #314a4b, -1px -1px 0 #314a4b, 1px -1px 0 #314a4b, -1px 1px 0 #314a4b, 1px 1px 0 #314a4b;
+}
+
+#edit-child-btn input:hover{
+  background: white;
+  color: #314a4b;
+  padding: 12px 20px 0;
+  text-shadow: 2px 2px 0 #58c6c8, -1px -1px 0 #58c6c8, 1px -1px 0 #58c6c8, -1px 1px 0 #58c6c8, 1px 1px 0 #58c6c8;
+}
+
 /* Media Queries */
 
 /* x-small screen size */

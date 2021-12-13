@@ -362,14 +362,6 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ---
 
-## **Testing And Project Barrier Solutions**
-
-All testing and project barriers and solutions has been documented here - [TESTING.md](https://github.com/irasan/christmas-hackathon2021/pull/4/TESTING.md)
-
-[Back to Top](#national-elf-services)
-
----
-
 ## **Credits**
 
 ### Code

@@ -25,6 +25,10 @@
   padding: 20px;
 }
 
+.blue-bg {
+  background-color: #37bfc1;
+}
+
 footer {
   background: #324B4B;
   margin-top: 20px;
@@ -42,9 +46,8 @@ h1 {
 }
 
 form {
-  width: 50%;
   margin: 0 auto;
-  padding: 20px;
+  text-align: center;
 }
 
 a {
@@ -71,10 +74,6 @@ a {
   border-color: #0e6d4d;
 }
 
-.margin-top {
-  margin-top: 220px;
-}
-
 div.dear-santa {
   background-image: url("../images/dearSanta.png");
   background-size: contain;
@@ -91,9 +90,8 @@ section.letter {
   font-family: "Fuzzy Bubbles", cursive;
   font-size: 24px;
   font-weight: 700;
-  color: fcfcfb;
+  color: #fcfcfb;
   background-color: #0c5460;
-  opacity: 0.7;
 }
 
 .letter-to-santa1 {
@@ -101,7 +99,7 @@ section.letter {
 }
 
 .letter-to-santa2 {
-  background-image: url("../images/balls.jpg");
+  background-image: url("../images/balls-big-letter.jpg");
 }
 
 /* clock */
@@ -116,6 +114,23 @@ section.letter {
   animation-name: clock;
   animation-duration: 5s;
   animation-fill-mode: forwards;
+}
+
+/* flash messages */
+.flashes {
+  margin: auto;
+}
+
+.flashes h4 {
+  margin: auto;
+  text-align: center;
+  line-height: 2;
+  color: #0e6d4d;
+}
+
+/* profile */
+.profile {
+  background-color: #37bfc1
 }
 
 @keyframes clock {
@@ -297,29 +312,49 @@ section.letter {
   position: relative;
 }
 
-.number {
-  /* background: url('../images/three.png'); */
+.number,
+.digit-1,
+.digit-2,
+.hourglass {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 180px;
-  height: 70%;
   position: absolute;
-  left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
+.number {
+  width: 180px;
+  height: 70%;
+  left: 25%;
+}
+
+.digit-1 {
+  width: 120px;
+  height: 50%;
+  left: 15%;
+}
+
+.digit-2 {
+  width: 130px;
+  height: 50%;
+  left: 28%;
+}
+
+.hourglass {
+    width: 100px;
+    left: 28%;
+    top: 60%;
+}
+#xmas-box,
 #update {
   color: gold;
   line-height: 2;
   font-family: "Mountains of Christmas", cursive;
-  font-size: 1.5rem;
   letter-spacing: 5px;
-  width: 350px;
+  width: 50%;
   position: absolute;
-  margin-top: 50px;
-  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
@@ -353,6 +388,16 @@ section.letter {
   font-size: 1.5rem;
   font-family: "Luckiest Guy", cursive;
   text-shadow: 2px 2px 0 #972929, -1px -1px 0 #972929, 1px -1px 0 #972929, -1px 1px 0 #972929, 1px 1px 0 #972929;
+
+#update {
+    font-size: 1.5rem;
+    left: 60%;
+    margin-top: 50px;
+}
+
+#xmas-box {
+    font-size: 4rem;
+    left: 50%;
 }
 
 /* Media Queries */
@@ -360,7 +405,7 @@ section.letter {
 /* x-small screen size */
 @media screen and (max-width: 576px) {
   .clock {
-    font-size: 20px;
+    font-size: 1.2rem;
     padding-top: 15px;
   }
 }
@@ -368,7 +413,7 @@ section.letter {
 /* small screen size */
 @media screen and (min-width: 576px) and (max-width: 768px) {
   .clock {
-    font-size: 24px;
+    font-size: 1.6rem;
     padding-top: 10px;
   }
 }
@@ -440,7 +485,7 @@ section.letter {
 }
 @media screen and (max-width: 768px) {
   .navbar-brand {
-    font-size: 2.5rem !important;
+    font-size: 1.5rem !important;
   }
 }
 @media screen and (max-width: 700px) {
@@ -457,7 +502,7 @@ section.letter {
 }
 @media screen and (max-width: 600px) {
   .navbar-brand {
-    font-size: 2rem !important;
+    font-size: 1.2rem !important;
   }
   .snow-bg {
     height: 400px;

@@ -106,37 +106,38 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 ## Features
 
 * Home Page
-    * ![Home Page]()
+    * ![Home Page](docs/screenshots/home.png)
 
 ---
 
 * Register
-    * ![Register Form]()
+    * ![Register Form](docs/screenshots/register.png)
 
 ---
 
 * Log In
-    * ![Log In Form]()
+    * ![Log In Form](docs/screenshots/login.png)
 
 ---
 
 * Log Out
-    * ![Log Out On Navbar]()
+    * ![Log Out On Navbar](docs/screenshots/navbar.png)
 
 ---
 
 * Letter to Santa templates determined by the age of the child.
-    * ![Log Out On Navbar]()
+    * ![Letter template small kid](docs/screenshots/letter_sm_kid.png)
+    * ![Letter template big kid](docs/screenshots/letter_big_kid.png)
 
 ---
 
 * A letter back from Santa.
-    * ![Log Out On Navbar]()
+    * ![Letter from Santa](docs/screenshots/.png)
 
 ---
 
 * A 12-day update-countdown for how Santa is preparing for Christmas.
-
+    * ![12-day update-countdown](docs/screenshots/countdown_12.png)
 ---
 #### Process Flowchart
 
@@ -374,33 +375,19 @@ All testing and project barriers and solutions has been documented here - [TESTI
 #### Countdown Backgrounds
 
 * [Pixabay](https://pixabay.com/vectors/moon-silhouettes-santa-claus-31665/)
-* [Pixabay](https://pixabay.com/illustrations/christmas-tree-lights-stars-glowing-2928142/)
-* [Pixabay](https://pixabay.com/illustrations/red-christmas-tree-christmas-2892235/)
-* [Pixabay](https://pixabay.com/illustrations/christmas-gifts-snow-surprise-3030279/)
-* [Pixabay](https://pixabay.com/photos/christmas-christmas-tree-presents-1869902/)
-* [Pixabay](https://pixabay.com/illustrations/background-abstract-christmas-shiny-3017167/)
-* [Pixabay](https://pixabay.com/illustrations/new-year-christmas-decoration-1911483/)
-* [Pixabay](https://pixabay.com/vectors/snow-winter-landscape-tree-6790304/)
-* [Pixabay](https://pixabay.com/vectors/christmas-ornaments-border-xmas-5791984/)
-* [Pixabay](https://pixabay.com/photos/christmas-snow-winter-3864540/)
-* [Pixabay](https://pixabay.com/vectors/christmas-decoration-ornaments-5740350/)
-* [Pixabay](https://pixabay.com/photos/santa-claus-christmas-6741515/)
-* [Pixabay](https://pixabay.com/illustrations/snowflake-background-snow-blue-3639667/)
 
 #### Countdown Numbers
 
-* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 1
-* [Pixabay](https://pixabay.com/illustrations/two-pay-stars-christmas-festive-2761958/) Number 2
-* [Pixabay](https://pixabay.com/illustrations/three-pay-stars-christmas-festive-2760919/) Number 3
-* [Pixabay](https://pixabay.com/illustrations/four-digit-pay-stars-christmas-2760921/) Number 4
-* [Pixabay](https://pixabay.com/illustrations/five-pay-stars-christmas-festive-2760922/) Number 5
-* [Pixabay](https://pixabay.com/illustrations/six-pay-stars-christmas-festive-2760923/) Number 6
-* [Pixabay](https://pixabay.com/illustrations/seven-pay-stars-christmas-festive-2760924/) Number 7
-* [Pixabay](https://pixabay.com/illustrations/eight-pay-stars-christmas-festive-2760925/) Number 8
-* [Pixabay](https://pixabay.com/illustrations/nine-pay-stars-christmas-festive-2760926/) Number 9
-* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 10
-* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 11
-* [Pixabay](https://pixabay.com/illustrations/one-pay-stars-christmas-festive-2760918/) Number 12
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_One_Gold_Shining_PNG_Clip_Art_Image#.YbY21_HMLPZ) Number 1
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Two_Gold_Shining_PNG_Clip_Art_Image#.YbZHEPHMLPY) Number 2
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Three_Gold_Shining_PNG_Clip_Art_Image#.YbZHIPHMLPY) Number 3
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Four_Gold_Shining_PNG_Clip_Art_Image#.YbZHLPHMLPY) Number 4
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Five_Gold_Shining_PNG_Clip_Art_Image#.YbZHN_HMLPY) Number 5
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Six_Gold_Shining_PNG_Clip_Art_Image#.YbZHQ_HMLPY) Number 6
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Seven_Gold_Shining_PNG_Clip_Art_Image#.YbZHTvHMLPY) Number 7
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Eight_Gold_Shining_PNG_Clip_Art_Image#.YbZHW_HMLPY) Number 8
+* [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Nine_Gold_Shining_PNG_Clip_Art_Image#.YbZHZ_HMLPY) Number 9
+* [PikPng](https://www.pikpng.com/downpngs/owwbRR_hourglass-clipart-gold-golden-sand-clock-png-download/) Hourglass
 
 
 ### Acknowledgements

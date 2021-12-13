@@ -194,7 +194,7 @@ def download_letter(child_id):
             behaviour3 = "- I made my bed"
         if child.get('homework') == 'y':
             behaviour4 = "- Finished all my homework"
-        gift1 = f"This Christmas my wishes are: {child.get('gift1')}, {child.get('gift2')} and {child.get('gift3')}. "
+        gift1 = f"This Christmas my wishes are: {child.get('gift1')},\n {child.get('gift2')} and {child.get('gift3')}. "
         gift2 = f"I also wish for a {child.get('friend')} for my friend."
         last_sentence = "I love snacking on chocolate pretzels these days, and I'll be leaving a plate of that by the tree. "\
             "I hope that will give you energy as you drop off gifts to the other nice kids out there."

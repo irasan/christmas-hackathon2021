@@ -107,6 +107,7 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 
 * Home Page
     * ![Home Page](docs/screenshots/home.png)
+    * The snow animation on the homepage is generated using a scss file (SASS), using as series of randomised variables and inserting a different value into each child element of the parent achieves simulated natural falling snow.
 
 ---
 
@@ -369,10 +370,15 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 * [Code Institute](https://codeinstitute.net/) was the main source of information used to create this project.
 * [Bootstrap](https://getbootstrap.com/): Throughout the site, to create a beautiful responsive site.
 
+### Animations
+
+* [Snow Effect](https://codepen.io/alphardex/pen/dyPorwJ) was the base of the code used to gernerate the effect
+
 ### Media
 
 * [Pixabay](https://pixabay.com/illustrations/christmas-motif-christmas-card-3774320/)
 * [Pixabay](https://pixabay.com/illustrations/christmas-motif-christmas-card-3794751/)
+* [Santas Sleigh](https://www.pngall.com/wp-content/uploads/5/Christmas-Santa-Sleigh-PNG.png)
 
 #### Countdown Backgrounds
 

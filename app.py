@@ -126,7 +126,7 @@ def download_response(child_id):
     pdf.add_page()
     pdf.image("static/images/tempred.png", x=0, y=0, w=210, h=297, type='', link='')
     pdf.set_margins(30, 30, 30)
-    pdf.set_font("Arial", size=18)
+    pdf.set_font('Courier', 'B', 18)
     pdf.cell(0, 60, txt=line_one,
              ln=1, align='C')
     pdf.multi_cell(150, 10, txt=line_two,
@@ -198,7 +198,7 @@ def download_letter(child_id):
         gift2 = f"I also wish for a {child.get('friend')} for my friend."
         last_sentence = "I love snacking on chocolate pretzels these days, and I'll be leaving a plate of that by the tree. "\
             "I hope that will give you energy as you drop off gifts to the other nice kids out there."
-        ps = f"P.S. Say 'hi' to {child.get('say_hi1')} and {child.get('say_hi1')} for me!"
+        ps = f"P.S. Say 'hi' to {child.get('say_hi1')} and {child.get('say_hi2')} for me!"
         closing = "Merry Christmas, Santa!"
     
     # save FPDF() class into a

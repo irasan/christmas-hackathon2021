@@ -107,11 +107,13 @@ section.letter {
 
 .letter-to-santa1 {
   background-image: url("../images/snowman.jpg");
+  
 }
 
 .letter-to-santa2 {
   background-image: url("../images/balls-big-letter.jpg");
 }
+
 
 /* clock */
 .clock {

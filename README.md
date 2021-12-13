@@ -122,13 +122,12 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 ---
 
 * Log Out
-    * ![Log Out On Navbar](docs/screenshots/navbar.png)
+    * ![Log Out On Navbar](docs/screenshots/navbar_lg.png)
 
 ---
 
 * Letter to Santa templates determined by the age of the child.
-    * ![Letter template small kid](docs/screenshots/letter_sm_kid.png)
-    * ![Letter template big kid](docs/screenshots/letter_big_kid.png)
+    * ![Letter template](docs/screenshots/letter.png)
     * The PDFs are generated using fpdf and are created dynamically everytime they request the PDF.
     * In order for the pdf folder not to get too bloated a function was written to ensure that each child only has 
       one pdf at any one time inside the folder. A folder cleanup function was written that handles this:
@@ -149,7 +148,7 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 ---
 
 * A letter back from Santa.
-    * ![Letter from Santa](docs/screenshots/.png)
+    * ![Letter from Santa](docs/screenshots/response.png)
 
 ---
 
@@ -181,9 +180,6 @@ The navigation bar changes depending on user status and screen size:
 | Log In | &#9989; | &#10060; | &#10060; |
 | Register | &#9989; | &#10060; | &#10060; |
 | Log Out | &#10060; | &#9989; | &#9989; |
-    
-* ![Navbar Large Screen For The Logged Out User]()
-* ![Navbar Large Screen For The Logged In User]()
 
 ### Database Design
 
@@ -396,10 +392,5 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 * [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Eight_Gold_Shining_PNG_Clip_Art_Image#.YbZHW_HMLPY) Number 8
 * [Yo Priceville Gallery](https://gallery.yopriceville.com/Free-Clipart-Pictures/Decorative-Numbers/Number_Nine_Gold_Shining_PNG_Clip_Art_Image#.YbZHZ_HMLPY) Number 9
 * [PikPng](https://www.pikpng.com/downpngs/owwbRR_hourglass-clipart-gold-golden-sand-clock-png-download/) Hourglass
-
-
-### Acknowledgements
-
-* 
 
 [Back to Top](#national-elf-services)

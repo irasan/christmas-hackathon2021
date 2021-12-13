@@ -14,14 +14,6 @@
 </head>
 <body>
 <header>
-    {% if 'username' in session %}
-        <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'] }}</div>
-    {% else %}
-        <div class="text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
-                href="{{ url_for('login') }}">Login</a>
-            or <a href="{{ url_for('register') }}">Register</a>.
-        </div>
-    {% endif %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div id="nav-container" class="container">
             <a class="navbar-brand" href="{{ url_for('index') }}">National Elf Services</a>
@@ -59,6 +51,14 @@
             </div>
         </div>
     </nav>
+    {% if 'username' in session %}
+    <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'] }}</div>
+    {% else %}
+        <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
+                href="{{ url_for('login') }}">Login</a>
+            or <a href="{{ url_for('register') }}">Register</a>
+        </div>
+    {% endif %}
     <div class="clock">
         <span id="flare"> Days left to Christmas: </span><span id="clock-inner" class="clock-gold"></span>
     </div>
@@ -82,7 +82,7 @@
             <a href="https://github.com/5pence" class="tap-target" rel="noopener" target="_blank">Spencer Barribal</a>
         </div>
         <div class="container mt-2">
-            <p class="m-0 text-center castle-green">Copyright &copy; National Elf Services 2021</p>
+            <p id="copyright" class="m-0 text-center castle-green">Copyright &copy; National Elf Services 2021</p>
         </div>
     </div>
 </footer>

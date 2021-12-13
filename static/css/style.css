@@ -511,10 +511,14 @@ section.letter {
   margin-bottom: 0;
 }
 
+#profile-delete-row{
+  padding-bottom: 1px;
+}
+
 #profile-delete{
   width: 25%;
   display: flow-root;
-  margin: 0 auto 3vh;
+  margin: 0 auto 2vh;
 }
 
 #edit-child-header{

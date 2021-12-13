@@ -90,7 +90,6 @@ div.dear-santa {
 
 .letter-background2 {
   background-image: url("../images/balls2.jpg");
-  height: 700px;
   max-width: 95%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -542,9 +541,7 @@ form.letter {
 }
 
 #edit-child-btn{
-  font-size: 1.7rem;
   padding: 10px 15px;
-
   letter-spacing: 2px;
   color: #fff;
   font-size: 2rem;

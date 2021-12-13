@@ -128,7 +128,7 @@ section.letter {
 }
 
 /* flash messages */
-.flashes {
+/* .flashes {
   margin: auto;
 }
 
@@ -137,7 +137,7 @@ section.letter {
   text-align: center;
   line-height: 2;
   color: #0e6d4d;
-}
+} */
 
 /* profile */
 .profile {

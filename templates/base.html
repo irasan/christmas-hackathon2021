@@ -55,12 +55,9 @@
             </div>
         </div>
     </nav>
-    {% if 'username' in session %}
-    <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'] }}</div>
-    {% else %}
+    {% if 'username' not in session %}
         <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
-                href="{{ url_for('login') }}">Login</a>
-            or <a href="{{ url_for('register') }}">Register</a>
+                href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a>
         </div>
     {% endif %}
     <div class="clock">
@@ -70,13 +67,17 @@
 <section>
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <div class="row flashes">
-        <h4>{{ message }}</h4>
-    </div>
-    {% endfor %}
-    {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+            <aside class="container-fluid">
+                <div class="row flashes">
+                    <div class="col login-text text-light font-italic bg-dark pt-2 pr-4 text-center">
+                        <h4>{{ message }}</h4>
+                    </div>
+                </div>
+            </aside>
+            {% endfor %}
+        {% endif %}
     {% endwith %}
 </section>
 <main>

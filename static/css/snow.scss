@@ -20,6 +20,7 @@
   @for $i from 1 through $total {
     $random-x: random(1000000) * 0.0001vw;
     $random-offset: random_range(-100000, 100000) * 0.0001vw;
+    $random-z: random(2000);
     $random-x-end: $random-x + $random-offset;
     $random-x-end-yoyo: $random-x + ($random-offset / 2);
     $random-yoyo-time: random_range(30000, 80000) / 100000;
@@ -30,6 +31,7 @@
 
     &:nth-child(#{$i}) {
       opacity: random(10000) * 0.0001;
+      z-index: $random-z;
       transform: translate($random-x, -10px) scale($random-scale);
       animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
     }

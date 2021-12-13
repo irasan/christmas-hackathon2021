@@ -245,6 +245,7 @@ section.letter {
 }
 
 .login-text a:hover{
+  text-decoration: none;
   color: #972929;
   -webkit-text-stroke: 1px white;
   text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
@@ -256,6 +257,8 @@ section.letter {
   margin: auto;
   margin-top: 150px;
   overflow: hidden;
+  position: relative;
+  z-index: 800;
 
   animation-name: santa-sleigh;
   animation-duration: 5s;
@@ -278,7 +281,8 @@ section.letter {
   text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
     -1px 1px 0 #fff, 1px 1px 0 #fff;
 
-  position: absolute;
+  position: fixed;
+  z-index: 500;
   left: 0;
   right: 0;
   text-align: center;

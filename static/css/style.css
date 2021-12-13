@@ -484,6 +484,22 @@ section.letter {
   text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
+#profile-name, #create-letter{
+  font-family: "Luckiest Guy", cursive;
+  color: #314a4b;
+  text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+#profile-name{
+  margin-bottom: 0;
+}
+
+#profile-delete{
+  width: 25%;
+  display: flow-root;
+  margin: 0 auto 3vh;
+}
+
 /* Media Queries */
 
 /* x-small screen size */

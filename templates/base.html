@@ -56,7 +56,7 @@
         </div>
     </nav>
     {% if 'username' in session %}
-    <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'] }}</div>
+    <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Welcome back, {{ session['username'].capitalize() }}</div>
     {% else %}
         <div class="login-text text-light font-italic bg-dark pt-2 pr-4 text-center">Please <a
                 href="{{ url_for('login') }}">Login</a>

@@ -128,6 +128,23 @@ The wireframes for desktop, mobile and tablet for this project can be found [her
 * Letter to Santa templates determined by the age of the child.
     * ![Letter template small kid](docs/screenshots/letter_sm_kid.png)
     * ![Letter template big kid](docs/screenshots/letter_big_kid.png)
+    * The PDFs are generated using fpdf and are created dynamically everytime they request the PDF.
+    * In order for the pdf folder not to get too bloated a function was written to ensure that each child only has 
+      one pdf at any one time inside the folder. A folder cleanup function was written that handles this:
+  ```
+  def clean_up_pdf_folder(child_id):
+    """ This function removes any stored pdf for child in order to ensure that their is only
+    one per child so the filesystem doesn't get to big"""
+    # gets all filesnames in list of pdf folder
+    only_pdf_files = [f for f in listdir('static/pdfs/') if isfile(join('static/pdfs/', f))]
+    for pdf in only_pdf_files:
+        # splice 24 characters from filename and see if they match child's id
+        if pdf[:24] == child_id or pdf[10:34] == child_id:
+            # if so delete file
+            os.remove(f'static/pdfs/{pdf}')
+     return
+
+```
 
 ---
 
@@ -238,6 +255,7 @@ A screenshot of a document from Children's collection
 * [RandomKeygen](https://randomkeygen.com/) was used to generate a strong `SECRET_KEY`.
 * [pip](https://pip.pypa.io/en/stable/) was used to install the required dependancies for this site.
 * [dnspython](https://pypi.org/project/dnspython/) was used to provide access to DNS.
+* [fpdf](https://pypi.org/project/fpdf2/) was used to create pdfs
 
 ### Testing
 

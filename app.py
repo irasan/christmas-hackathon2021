@@ -109,11 +109,12 @@ def download_response(child_id):
     else:
         nice_thing = "I checked my list and I was delighted to see your name on the nice list."
     mylist = []
-    for n in child.get('wanted_behavior'):
-        if n[1] == 'y':
-            mylist.append(n[0])
-    wanted_list = ''.join(mylist)
-    recommendation = f"Now {wanted_list} listen to your parents and remember the spirit of Christmas all year long!"
+    if child.get('wanted_behavior'):
+        for n in child.get('wanted_behavior'):
+            if n[1] == 'y':
+                mylist.append(n[0])
+        wanted_list = ''.join(mylist)
+        recommendation = f"Now {wanted_list} listen to your parents and remember the spirit of Christmas all year long!"
     if child.get('favorite'):
         closing = f"Merry Christmas! By the way, {child.get('favorite')} is my favorite too!"
     else:
